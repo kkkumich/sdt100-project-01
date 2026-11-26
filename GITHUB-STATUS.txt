@@ -1,0 +1,16 @@
+PUBLIC GITHUB REPOSITORIES (source and defense README committed)
+Projects 1-10: https://github.com/kkkumich/sdt100-project-01 through sdt100-project-10
+
+PROJECTS 11-13
+Code compiled and validated locally. GitHub refused creation of more repositories with:
+"You have created too many repositories, too quickly. Please try again later."
+Full source archives are published in sdt100-project-01 as Project-11-source.zip,
+Project-12-source.zip and Project-13-source.zip. These are temporary delivery artifacts;
+separate repositories still need to be created after GitHub removes the rate limit.
+
+CANVAS
+All 21 entries in Past Assignments were opened. Submission windows have closed.
+Class 2/4/5/6 have no individual task descriptions. Class 3 was implemented from lecture diagrams.
+Introduction reflection is a draft to adapt after viewing the videos.
+Feedback is dated 2023 and does not contain the form links.
+Midterm already shows 14/15 and was not restarted.

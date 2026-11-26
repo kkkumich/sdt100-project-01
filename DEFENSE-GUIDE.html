@@ -1,0 +1,1207 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>SDT100 — все Past Assignments и защита</title><style>body{font:17px/1.6 system-ui,sans-serif;margin:0;background:#f4f6fa;color:#182335}main{max-width:1080px;margin:auto;padding:30px}header{background:#163455;color:white;padding:32px;border-radius:16px}section{background:white;border:1px solid #d6dfe8;border-radius:12px;padding:24px;margin:22px 0}a{color:#115aa0}header a{color:#cde6ff}pre{background:#eef2f6;padding:15px;overflow:auto;border-radius:8px;font-size:14px}summary{cursor:pointer;font-weight:650}.notice{border-left:5px solid #df9d20;padding:14px;background:#fff5d9}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccd4dd;padding:8px;text-align:left}img{max-width:100%;height:auto}h2{margin-top:0}nav a{display:inline-block;margin:3px 9px 3px 0}</style><main><header><h1>SDT 100: прошлые задания и подготовка к защите</h1><p>Проверено в Canvas 26 ноября 2026. Порядок — от ранних заданий к поздним.</p><p>13 Java-проектов, исходники, настоящие журналы запусков, схемы и ответы на вопросы защиты.</p></header><section><h2>Что подготовлено и что ещё требуется</h2><p>Все 13 проектов написаны по доступным условиям Canvas. Каждый проект — отдельная папка/репозиторий, части разделены пакетами. Дедлайны прошли, поэтому Canvas не принимает обычную отправку; наличие кода на GitHub само по себе не изменяет оценку.</p><p>Для окончательной сдачи требуются собственные скриншоты IntelliJ и отладчика, ссылки на репозитории и, при необходимости, разрешение преподавателя на позднюю сдачу. В reflection и feedback личные впечатления должен подтвердить сам студент.</p><p>У Class 2, 4, 5 и 6 в Canvas нет отдельных условий. Для них ниже указана подходящая практика, а не выдуманное точное решение неизвестного задания. Class 3 реализован после чтения схем на страницах 11–12 лекции 3.</p></section><section id="intro"><h2>31 августа — Introduction Video reflexion</h2><p><a href="https://auk.instructure.com/courses/1274/assignments/33051">Условие Canvas</a>: посмотреть вводные видео и кратко ответить, что заинтересовало и что было трудно.</p><p>Ниже — черновик по прочитанным вводным материалам курса. Он не является утверждением, что студент посмотрел видео; адаптируй после просмотра.</p><blockquote><p>The most interesting idea for me was that an algorithm can be described independently of a programming language using pseudocode or a flowchart. I also found it interesting that images can be represented with numbers by storing red, green, and blue values for each pixel.</p><p>The most difficult topic was understanding binary place values and translating a flowchart into a precise sequence of decisions and repeated steps. Working through a small example step by step would help me understand these ideas better.</p></blockquote><p><b>Защита:</b> объясни, что алгоритм — последовательность шагов; например, 1011₂ = 8+2+1 = 11₁₀. В блок-схеме ромб обозначает решение, прямоугольник — действие, стрелки — переходы. Выбери именно те трудности, которые были у тебя.</p></section><section id="project1"><h2>07.09, 09:00 — Project 1. Development environment</h2><p><a href="https://auk.instructure.com/courses/1274/assignments/33042">Canvas</a> · <a href="project1/README.md">Инструкция проекта</a> · <a href="https://github.com/kkkumich/sdt100-project-01">Адрес репозитория (статус см. GITHUB-STATUS.txt)</a></p><h3>Что показать</h3><p>Запусти part1_hello.Main. Покажи исходник, вывод трёх строк, выбранный JDK, структуру src/part1_hello и историю коммитов.</p><h3>Что сказать своими словами</h3><p>Программа начинается с public static void main(String[] args). println выводит строку и переводит курсор на новую строку. JDK содержит компилятор javac; java запускает скомпилированный байт-код в JVM. Git хранит локальную историю, GitHub — удалённый репозиторий.</p><h3>Вопросы преподавателя</h3><p><b>Чем commit отличается от push?</b><br>Commit фиксирует изменения локально, push отправляет коммиты в удалённый репозиторий.</p><p><b>Что делает clone?</b><br>Создаёт локальную копию репозитория вместе с историей.</p><p><b>Зачем package?</b><br>Создаёт пространство имён и группирует связанные классы.</p><div class="notice">В IntelliJ открой папку проекта, выбери JDK 21, пометь src как Sources Root, запусти main и сделай настоящий скриншот IDE. Отдельное Git/GitHub Classroom-приглашение из условия сейчас ведёт на сообщение о закрытии Classroom; старую инструкцию нужно согласовать с преподавателем.</div><h3>Запуск</h3><pre>powershell -File project1/run.ps1 -MainClass part1_hello.Main</pre><details><summary>project1/src/part1_hello/Main.java</summary><pre><code>package part1_hello;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(&quot;Hello world!&quot;);
+        System.out.println(&quot;My name is Ivan. Welcome to my first Java program.&quot;);
+        System.out.println(&quot;I am learning variables, conditions, loops and methods.&quot;);
+    }
+}
+</code></pre></details></section><section><h2>7 сентября, 18:00 — Class 2. Variables</h2><p>В Canvas: «Дополнительные сведения ... не были добавлены». Для подготовки используй Project 2, part1_syntax: int/double, преобразование типов, ввод и строки. Это практика по теме, а не подтверждённое отдельное условие.</p></section><section id="project2"><h2>14.09, 09:00 — Project 2. I/O, Variables, Data types</h2><p><a href="https://auk.instructure.com/courses/1274/assignments/33043">Canvas</a> · <a href="project2/README.md">Инструкция проекта</a> · <a href="https://github.com/kkkumich/sdt100-project-02">Адрес репозитория (статус см. GITHUB-STATUS.txt)</a></p><h3>Что показать</h3><p>Покажи пять типов, арифметику, целочисленное и вещественное деление, приведение типа, строки и диалог с десятью вводами. В error_examples лежат три намеренно неправильных примера и настоящие сообщения javac.</p><h3>Что сказать своими словами</h3><p>Тип определяет допустимые значения и операции. int делится на int с отбрасыванием дробной части. После приведения одного операнда к double деление становится вещественным. Данные читаются целой строкой и затем разбираются: это предотвращает проблему остаточного перевода строки после nextInt.</p><h3>Вопросы преподавателя</h3><p><b>Почему 17/5 равно 3?</b><br>Оба операнда целые. (double)17/5 даёт 3.4.</p><p><b>Чем char отличается от String?</b><br>char хранит одну UTF-16 кодовую единицу, String — последовательность.</p><p><b>Что возвращает indexOf, если символ не найден?</b><br>-1.</p><div class="notice">Для пункта Debugger поставь breakpoint перед арифметикой и вводом, выбери Debug, покажи Variables и Step Over. Сохрани собственные скриншоты отладчика и трёх ошибок. Демонстрационные данные не являются личными сведениями пользователя.</div><h3>Запуск</h3><pre>powershell -File project2/run.ps1 -MainClass part1_syntax.Main
+powershell -File project2/run.ps1 -MainClass part2_dialog.Main</pre><details><summary>project2/src/common/Input.java</summary><pre><code>package common;
+import java.util.Scanner;
+/** Read complete lines to avoid the nextInt/nextLine newline problem. */
+public final class Input {
+    private static final Scanner IN = new Scanner(System.in);
+    private Input() { }
+    public static String text(String prompt) {
+        System.out.print(prompt);
+        if (!IN.hasNextLine()) throw new IllegalStateException(&quot;Input ended before the dialog finished&quot;);
+        return IN.nextLine().trim();
+    }
+    public static int integer(String prompt, int min, int max) {
+        while (true) {
+            try { int n = Integer.parseInt(text(prompt));
+                if (n &gt;= min &amp;&amp; n &lt;= max) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a whole number from &quot; + min + &quot; to &quot; + max + &quot;.&quot;);
+        }
+    }
+    public static double number(String prompt) {
+        while (true) {
+            try { double n = Double.parseDouble(text(prompt));
+                if (Double.isFinite(n)) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a finite number; use a dot for decimals.&quot;);
+        }
+    }
+    public static boolean again() { return text(&quot;Continue? (Y/N): &quot;).equalsIgnoreCase(&quot;y&quot;); }
+}
+</code></pre></details><details><summary>project2/src/part1_syntax/Main.java</summary><pre><code>package part1_syntax;
+
+import common.Input;
+/** Part 1. Types, arithmetic, strings, input/output and comments. */
+public class Main {
+    public static void main(String[] args) {
+        int a = 17, b = 5;
+        double price = 12.75;
+        char initial = 'I';
+        boolean learning = true;
+        String subject = &quot;Java programming&quot;;
+        // Integer division discards the fractional part.
+        System.out.printf(&quot;sum=%d difference=%d product=%d quotient=%d remainder=%d%n&quot;,
+                a+b, a-b, a*b, a/b, a%b);
+        System.out.println(&quot;Decimal division: &quot; + (double)a/b);
+        a++; b--;
+        System.out.println(&quot;After increment/decrement: &quot; + a + &quot;, &quot; + b);
+        System.out.println(&quot;Cast double to int: &quot; + (int)price);
+        System.out.println(&quot;initial=&quot; + initial + &quot;, learning=&quot; + learning);
+        /* Strings are immutable: methods return a new value. */
+        System.out.println(subject.toUpperCase());
+        System.out.println(&quot;length=&quot; + subject.length() + &quot;, substring=&quot; + subject.substring(0,4));
+        String name = Input.text(&quot;What is your name? &quot;);
+        System.out.println(&quot;Hello, &quot; + name + &quot;!&quot;);
+    }
+}
+</code></pre></details><details><summary>project2/src/part2_dialog/Main.java</summary><pre><code>package part2_dialog;
+
+import common.Input;
+public class Main {
+    public static void main(String[] args) {
+        // Part 2. Ten separate user inputs, using several data types.
+        String name=Input.text(&quot;First name: &quot;);
+        String surname=Input.text(&quot;Surname: &quot;);
+        int age=Input.integer(&quot;Age (0-120): &quot;,0,120);
+        String city=Input.text(&quot;City: &quot;);
+        String country=Input.text(&quot;Country: &quot;);
+        String major=Input.text(&quot;Study subject: &quot;);
+        int year=Input.integer(&quot;Study year (1-8): &quot;,1,8);
+        double hours=Input.number(&quot;Hours of study per week: &quot;);
+        boolean likesJava=Input.text(&quot;Do you like Java? (yes/no): &quot;).equalsIgnoreCase(&quot;yes&quot;);
+        String hobby=Input.text(&quot;Favourite hobby: &quot;);
+        char initial=name.isEmpty()?'?':name.charAt(0);
+        System.out.printf(&quot;%nSUMMARY%n%s %s (%c), age %d%n%s, %s%n%s, year %d%nStudy hours: %.1f%nLikes Java: %s%nHobby: %s%n&quot;,
+                name,surname,initial,age,city,country,major,year,hours,likesJava,hobby);
+        String lower=hobby.toLowerCase(java.util.Locale.ROOT);
+        if(lower.contains(&quot;read&quot;)) System.out.println(&quot;You might enjoy a programming book.&quot;);
+        if(lower.startsWith(&quot;sport&quot;)) System.out.println(&quot;Sport is a great way to take a study break.&quot;);
+        System.out.println(&quot;Position of 'a' in hobby (-1 means absent): &quot; + lower.indexOf('a'));
+    }
+}
+</code></pre></details></section><section><h2>14 сентября — Class 3. Conditions &amp; Flowcharts</h2><p>Готовое решение: project3/src/class3_flowcharts/Main.java. По схеме лекции первая программа отвечает Yes! при isRaining=true и Not Today! при false. Пикник: <code>isSaturday &amp;&amp; (isBritain || !isRaining)</code>.</p><p><b>Защита:</b> покажи три булевых ввода и таблицу всех восьми сочетаний. Объясни: суббота обязательна; если Британия — дождь не учитывается; иначе требуется отсутствие дождя. Не подменяй первую схему житейской логикой: в ней именно дождь ведёт к Yes!.</p><p><a href="https://auk.instructure.com/courses/1274/files/357057?wrap=1">Источник: лекция 3, страницы 11–12</a></p></section><section id="project3"><h2>21.09, 09:00 — Project 3. If/else statements, switch</h2><p><a href="https://auk.instructure.com/courses/1274/assignments/33044">Canvas</a> · <a href="project3/README.md">Инструкция проекта</a> · <a href="https://github.com/kkkumich/sdt100-project-03">Адрес репозитория (статус см. GITHUB-STATUS.txt)</a></p><h3>Что показать</h3><p>Запусти демонстрацию условий, затем возрастные категории и рекомендации для двух разных сочетаний возраста и жанра. Покажи flowchart.svg.</p><h3>Что сказать своими словами</h3><p>if выбирает ветвь по boolean-условию; else обрабатывает альтернативу. &amp;&amp; требует истинности двух условий, || — хотя бы одного, ! меняет значение. String.equals сравнивает содержимое строк. Рекомендация зависит одновременно от возраста и жанра.</p><h3>Вопросы преподавателя</h3><p><b>Почему не сравнивать строки через ==?</b><br>== сравнивает ссылки, equals — текст.</p><p><b>Зачем порядок условий возраста?</b><br>Чтобы более общая ветвь не перехватила частный случай.</p><p><b>Что происходит в 6 и 23 года?</b><br>В исходном условии есть пробелы: эти возраста не покрыты. Программа явно просит уточнить деятельность, а не скрывает допущение.</p><div class="notice">Уточни у преподавателя границы возрастов 6 и 23; для остальных возрастов код точно следует диапазонам задания.</div><h3>Запуск</h3><pre>powershell -File project3/run.ps1 -MainClass part1_conditions.Main
+powershell -File project3/run.ps1 -MainClass part2_activity.Main
+powershell -File project3/run.ps1 -MainClass part3_recommender.Main</pre><p><a href="project3/flowchart.svg">Блок-схема</a></p><details><summary>project3/src/common/Input.java</summary><pre><code>package common;
+import java.util.Scanner;
+/** Read complete lines to avoid the nextInt/nextLine newline problem. */
+public final class Input {
+    private static final Scanner IN = new Scanner(System.in);
+    private Input() { }
+    public static String text(String prompt) {
+        System.out.print(prompt);
+        if (!IN.hasNextLine()) throw new IllegalStateException(&quot;Input ended before the dialog finished&quot;);
+        return IN.nextLine().trim();
+    }
+    public static int integer(String prompt, int min, int max) {
+        while (true) {
+            try { int n = Integer.parseInt(text(prompt));
+                if (n &gt;= min &amp;&amp; n &lt;= max) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a whole number from &quot; + min + &quot; to &quot; + max + &quot;.&quot;);
+        }
+    }
+    public static double number(String prompt) {
+        while (true) {
+            try { double n = Double.parseDouble(text(prompt));
+                if (Double.isFinite(n)) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a finite number; use a dot for decimals.&quot;);
+        }
+    }
+    public static boolean again() { return text(&quot;Continue? (Y/N): &quot;).equalsIgnoreCase(&quot;y&quot;); }
+}
+</code></pre></details><details><summary>project3/src/part1_conditions/Main.java</summary><pre><code>package part1_conditions;
+
+import common.Input;
+public class Main {
+    public static void main(String[] args) {
+        int age=Input.integer(&quot;Age (0-120): &quot;,0,120);
+        System.out.printf(&quot;==18: %s; !=18: %s; &gt;18: %s; &lt;18: %s; &lt;=18: %s; &gt;=18: %s%n&quot;,
+                age==18,age!=18,age&gt;18,age&lt;18,age&lt;=18,age&gt;=18);
+        String answer=Input.text(&quot;Are you a student? (yes/no): &quot;);
+        boolean student=answer.equalsIgnoreCase(&quot;yes&quot;);
+        if(age&gt;=18 &amp;&amp; student) System.out.println(&quot;Adult student.&quot;);
+        if(age&lt;18 || student) System.out.println(&quot;Youth or student category.&quot;);
+        if(!student) System.out.println(&quot;Not a student.&quot;);
+        if(age&gt;=18) {
+            if(student) System.out.println(&quot;Ask for a student discount.&quot;);
+            else System.out.println(&quot;Standard adult price.&quot;);
+        } else System.out.println(&quot;Child price.&quot;);
+        String day=Input.text(&quot;Weekday (mon/tue/etc.): &quot;).toLowerCase(java.util.Locale.ROOT);
+        switch(day) {
+            case &quot;sat&quot;: case &quot;sun&quot;: System.out.println(&quot;Weekend&quot;); break;
+            case &quot;mon&quot;: case &quot;tue&quot;: case &quot;wed&quot;: case &quot;thu&quot;: case &quot;fri&quot;: System.out.println(&quot;Weekday&quot;); break;
+            default: System.out.println(&quot;Unknown weekday&quot;);
+        }
+        System.out.println(&quot;Exact yes comparison: &quot; + answer.equals(&quot;yes&quot;));
+    }
+}
+</code></pre></details><details><summary>project3/src/part2_activity/Main.java</summary><pre><code>package part2_activity;
+
+import common.Input;
+public class Main {
+    public static String activity(int age) {
+        if(age&lt;0) throw new IllegalArgumentException(&quot;Age cannot be negative&quot;);
+        // The assignment leaves ages 6 and 23 unspecified. Ask rather than invent a category.
+        if(age==6 || age==23) return &quot;Boundary age: please clarify your current activity.&quot;;
+        if(age&lt;6) return &quot;Home, walks and kindergarten&quot;;
+        if(age&lt;=17) return &quot;School&quot;;
+        if(age&lt;=22) return &quot;University&quot;;
+        if(age&lt;=60) return &quot;Work&quot;;
+        return &quot;Retired&quot;;
+    }
+    public static void main(String[] args) {
+        String name=Input.text(&quot;Your name: &quot;);
+        int age=Input.integer(&quot;Your age (0-120): &quot;,0,120);
+        System.out.println(name + &quot;, your likely activity: &quot; + activity(age));
+    }
+}
+</code></pre></details><details><summary>project3/src/part3_recommender/Main.java</summary><pre><code>package part3_recommender;
+import common.Input;
+public class Main {
+    public static String recommend(int age, String genre) {
+        genre=genre.toLowerCase(java.util.Locale.ROOT).trim();
+        if(genre.equals(&quot;detective&quot;)) return age&lt;17?&quot;The Westing Game&quot;:&quot;The Hound of the Baskervilles&quot;;
+        if(genre.equals(&quot;fantasy&quot;)) return age&lt;17?&quot;The Hobbit&quot;:&quot;The Lord of the Rings&quot;;
+        if(genre.equals(&quot;non-fiction&quot;)) return age&lt;17?&quot;A Short History of Nearly Everything&quot;:&quot;The Design of Everyday Things&quot;;
+        return age&lt;17?&quot;The Little Prince&quot;:&quot;Animal Farm&quot;;
+    }
+    public static void conversation() {
+        String name=Input.text(&quot;Your name: &quot;);
+        int age=Input.integer(&quot;Age (0-120): &quot;,0,120);
+        String genre=Input.text(&quot;Genre (detective/fantasy/non-fiction/other): &quot;);
+        System.out.println(name + &quot;, try reading: &quot; + recommend(age,genre));
+    }
+
+    public static void main(String[] args) { conversation(); }
+}
+</code></pre></details></section><section><h2>21 сентября, 23:59 — Class 4. Loops</h2><p>Отдельного описания в Canvas нет. Практика: Project 4. На защите объясни условие остановки, изменение счётчика и отличие while от do-while.</p></section><section id="project4"><h2>25.09, 09:00 — Project 4. Loops</h2><p><a href="https://auk.instructure.com/courses/1274/assignments/33045">Canvas</a> · <a href="project4/README.md">Инструкция проекта</a> · <a href="https://github.com/kkkumich/sdt100-project-04">Адрес репозитория (статус см. GITHUB-STATUS.txt)</a></p><h3>Что показать</h3><p>Покажи while, do-while, for, вложенный цикл, обход строки, uppercase, разворот через charAt и повтор диалога по Y/y. Затем введи N.</p><h3>Что сказать своими словами</h3><p>while проверяет условие до выполнения, do-while — после, поэтому выполняется хотя бы один раз. for удобен для известного количества повторений. В развороте строк индекс идёт от length()-1 до 0. Вложенные циклы выполняют внутренний цикл для каждой итерации внешнего.</p><h3>Вопросы преподавателя</h3><p><b>Почему последний индекс length()-1?</b><br>Индексация начинается с нуля.</p><p><b>Что будет без изменения счётчика?</b><br>Условие может никогда не стать ложным, получится бесконечный цикл.</p><p><b>Почему в обратном отсчёте нет 6?</b><br>Именно такая последовательность указана в условии. Использован i-- и явный пропуск 6; если это опечатка преподавателя, условие if(i!=6) можно убрать.</p><div class="notice">Разворот через charAt отвечает учебному условию; для сложных Unicode-символов, состоящих из нескольких кодовых единиц, он не является универсальным текстовым алгоритмом.</div><h3>Запуск</h3><pre>powershell -File project4/run.ps1 -MainClass part1_loops.Main
+powershell -File project4/run.ps1 -MainClass part2_uppercase.Main
+powershell -File project4/run.ps1 -MainClass part3_reverse.Main
+powershell -File project4/run.ps1 -MainClass part4_repeated_recommender.Main</pre><p><a href="project4/flowchart.svg">Блок-схема</a></p><details><summary>project4/src/common/Input.java</summary><pre><code>package common;
+import java.util.Scanner;
+/** Read complete lines to avoid the nextInt/nextLine newline problem. */
+public final class Input {
+    private static final Scanner IN = new Scanner(System.in);
+    private Input() { }
+    public static String text(String prompt) {
+        System.out.print(prompt);
+        if (!IN.hasNextLine()) throw new IllegalStateException(&quot;Input ended before the dialog finished&quot;);
+        return IN.nextLine().trim();
+    }
+    public static int integer(String prompt, int min, int max) {
+        while (true) {
+            try { int n = Integer.parseInt(text(prompt));
+                if (n &gt;= min &amp;&amp; n &lt;= max) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a whole number from &quot; + min + &quot; to &quot; + max + &quot;.&quot;);
+        }
+    }
+    public static double number(String prompt) {
+        while (true) {
+            try { double n = Double.parseDouble(text(prompt));
+                if (Double.isFinite(n)) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a finite number; use a dot for decimals.&quot;);
+        }
+    }
+    public static boolean again() { return text(&quot;Continue? (Y/N): &quot;).equalsIgnoreCase(&quot;y&quot;); }
+}
+</code></pre></details><details><summary>project4/src/part1_loops/Main.java</summary><pre><code>package part1_loops;
+
+public class Main {
+    public static void main(String[] args) {
+        int i=1;
+        while(i&lt;=3) { System.out.print(i++ + &quot; &quot;); } System.out.println();
+        i=1;
+        do { System.out.print(i++ + &quot; &quot;); } while(i&lt;=3); System.out.println();
+        for(i=1;i&lt;=10;i++) System.out.print(i+&quot; &quot;); System.out.println();
+        // Exact sequence in the assignment omits 6; the counter still uses i--.
+        for(i=10;i&gt;=1;i--) if(i!=6) System.out.print(i+&quot; &quot;); System.out.println();
+        String text=&quot;Java&quot;;
+        for(i=0;i&lt;text.length();i++) System.out.println(text.charAt(i));
+        for(i=1;i&lt;=3;i++) {
+            System.out.print(&quot;Row &quot;+i+&quot;: &quot;);
+            for(int j=1;j&lt;=3;j++) System.out.print(i*j+&quot; &quot;);
+            System.out.println();
+        }
+    }
+}
+</code></pre></details><details><summary>project4/src/part2_uppercase/Main.java</summary><pre><code>package part2_uppercase;
+
+import common.Input;
+public class Main {
+    public static void main(String[] args) {
+        do { System.out.println(Input.text(&quot;Enter any string: &quot;).toUpperCase(java.util.Locale.ROOT)); }
+        while(Input.again());
+    }
+}
+</code></pre></details><details><summary>project4/src/part3_reverse/Main.java</summary><pre><code>package part3_reverse;
+
+import common.Input;
+public class Main {
+    public static String reverse(String s) {
+        StringBuilder result=new StringBuilder();
+        for(int i=s.length()-1;i&gt;=0;i--) result.append(s.charAt(i));
+        return result.toString();
+    }
+    public static void main(String[] args) {
+        do { System.out.println(reverse(Input.text(&quot;Enter any string: &quot;))); } while(Input.again());
+    }
+}
+</code></pre></details><details><summary>project4/src/part4_repeated_recommender/Main.java</summary><pre><code>package part4_repeated_recommender;
+import common.Input;
+public class Main {
+    public static String recommend(int age, String genre) {
+        genre=genre.toLowerCase(java.util.Locale.ROOT).trim();
+        if(genre.equals(&quot;detective&quot;)) return age&lt;17?&quot;The Westing Game&quot;:&quot;The Hound of the Baskervilles&quot;;
+        if(genre.equals(&quot;fantasy&quot;)) return age&lt;17?&quot;The Hobbit&quot;:&quot;The Lord of the Rings&quot;;
+        if(genre.equals(&quot;non-fiction&quot;)) return age&lt;17?&quot;A Short History of Nearly Everything&quot;:&quot;The Design of Everyday Things&quot;;
+        return age&lt;17?&quot;The Little Prince&quot;:&quot;Animal Farm&quot;;
+    }
+    public static void conversation() {
+        String name=Input.text(&quot;Your name: &quot;);
+        int age=Input.integer(&quot;Age (0-120): &quot;,0,120);
+        String genre=Input.text(&quot;Genre (detective/fantasy/non-fiction/other): &quot;);
+        System.out.println(name + &quot;, try reading: &quot; + recommend(age,genre));
+    }
+
+    public static void main(String[] args) { do { conversation(); } while(Input.again()); }
+}
+</code></pre></details></section><section><h2>25 сентября, 23:59 — Class 5. Methods</h2><p>Отдельного описания нет. Практика: Project 5. Объясни сигнатуру, параметры, возвращаемый тип и декомпозицию.</p></section><section id="project5"><h2>28.09, 09:00 — Project 5. Methods &amp; arguments</h2><p><a href="https://auk.instructure.com/courses/1274/assignments/33046">Canvas</a> · <a href="project5/README.md">Инструкция проекта</a> · <a href="https://github.com/kkkumich/sdt100-project-05">Адрес репозитория (статус см. GITHUB-STATUS.txt)</a></p><h3>Что показать</h3><p>Сначала методы с разными аргументами и возвращаемыми типами, затем диалог из маленьких методов. В калькуляторе покажи продолжение с предыдущим результатом и деление на ноль.</p><h3>Что сказать своими словами</h3><p>Метод выделяет одну задачу, получает параметры и может вернуть результат через return. void означает отсутствие возвращаемого значения. main управляет последовательностью, а детали вынесены в методы ввода, вывода, рекомендации и подтверждения повтора. Псевдокод находится в комментарии над Main.</p><h3>Вопросы преподавателя</h3><p><b>Параметр и аргумент — одно и то же?</b><br>Параметр объявляется в методе; аргумент — фактическое значение при вызове.</p><p><b>Зачем декомпозиция?</b><br>Чтобы части можно было понимать, проверять и менять независимо.</p><p><b>Как обработано деление на ноль?</b><br>Метод divide выбрасывает исключение; диалог выводит сообщение и продолжает работу.</p><div class="notice">Part 3 — необязательный калькулятор — включён. Отдельные методы реализуют каждую операцию.</div><h3>Запуск</h3><pre>powershell -File project5/run.ps1 -MainClass part1_methods.Main
+powershell -File project5/run.ps1 -MainClass part2_decomposition.Main
+powershell -File project5/run.ps1 -MainClass part3_calculator.Main</pre><details><summary>project5/src/common/Input.java</summary><pre><code>package common;
+import java.util.Scanner;
+/** Read complete lines to avoid the nextInt/nextLine newline problem. */
+public final class Input {
+    private static final Scanner IN = new Scanner(System.in);
+    private Input() { }
+    public static String text(String prompt) {
+        System.out.print(prompt);
+        if (!IN.hasNextLine()) throw new IllegalStateException(&quot;Input ended before the dialog finished&quot;);
+        return IN.nextLine().trim();
+    }
+    public static int integer(String prompt, int min, int max) {
+        while (true) {
+            try { int n = Integer.parseInt(text(prompt));
+                if (n &gt;= min &amp;&amp; n &lt;= max) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a whole number from &quot; + min + &quot; to &quot; + max + &quot;.&quot;);
+        }
+    }
+    public static double number(String prompt) {
+        while (true) {
+            try { double n = Double.parseDouble(text(prompt));
+                if (Double.isFinite(n)) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a finite number; use a dot for decimals.&quot;);
+        }
+    }
+    public static boolean again() { return text(&quot;Continue? (Y/N): &quot;).equalsIgnoreCase(&quot;y&quot;); }
+}
+</code></pre></details><details><summary>project5/src/part1_methods/Main.java</summary><pre><code>package part1_methods;
+
+public class Main {
+    public static void greet() { System.out.println(&quot;Welcome!&quot;); }
+    public static int add(int a,int b) { return a+b; }
+    public static double rectangleArea(double width,double height) { return width*height; }
+    public static boolean isAdult(int age) { return age&gt;=18; }
+    public static String label(String name,int age) { return name+&quot; (&quot;+age+&quot;)&quot;; }
+    public static void summary(String name,int age) {
+        greet();
+        System.out.println(label(name,age));
+        System.out.println(&quot;Adult: &quot;+isAdult(age));
+    }
+    public static void main(String[] args) {
+        summary(&quot;Demo&quot;,20);
+        int total=add(3,4);
+        double area=rectangleArea(2.5,4);
+        System.out.println(&quot;sum=&quot;+total+&quot;, area=&quot;+area);
+    }
+}
+</code></pre></details><details><summary>project5/src/part2_decomposition/Main.java</summary><pre><code>package part2_decomposition;
+
+import common.Input;
+/* PSEUDOCODE:
+   REPEAT: read name, age and genre; choose a book using age AND genre;
+   print recommendation; ask whether to repeat; UNTIL answer is not Y.
+*/
+public class Main {
+    public static void print(String message) { System.out.println(message); }
+    public static String getUserString(String prompt) { return Input.text(prompt); }
+    public static int getAge() {
+        while(true) {
+            try { int age=Integer.parseInt(getUserString(&quot;Age (0-120): &quot;));
+                if(age&gt;=0 &amp;&amp; age&lt;=120) return age;
+            } catch(NumberFormatException ignored) { }
+            print(&quot;Please enter a valid age.&quot;);
+        }
+    }
+    public static boolean askToContinue() { return getUserString(&quot;Continue? (Y/N): &quot;).equalsIgnoreCase(&quot;y&quot;); }
+    public static String recommend(int age,String genre) {
+        if(genre.equalsIgnoreCase(&quot;detective&quot;)) return age&lt;17?&quot;The Westing Game&quot;:&quot;The Hound of the Baskervilles&quot;;
+        if(genre.equalsIgnoreCase(&quot;fantasy&quot;)) return age&lt;17?&quot;The Hobbit&quot;:&quot;The Lord of the Rings&quot;;
+        if(genre.equalsIgnoreCase(&quot;non-fiction&quot;)) return age&lt;17?&quot;A Short History of Nearly Everything&quot;:&quot;The Design of Everyday Things&quot;;
+        return age&lt;17?&quot;The Little Prince&quot;:&quot;Animal Farm&quot;;
+    }
+    public static void runConversation() {
+        String name=getUserString(&quot;Name: &quot;);
+        int age=getAge();
+        String genre=getUserString(&quot;Genre (detective/fantasy/non-fiction/other): &quot;);
+        print(name+&quot;, try reading: &quot;+recommend(age,genre));
+    }
+    public static void main(String[] args) { do { runConversation(); } while(askToContinue()); }
+}
+</code></pre></details><details><summary>project5/src/part3_calculator/Main.java</summary><pre><code>package part3_calculator;
+
+import common.Input;
+public class Main {
+    public static double add(double a,double b) { return a+b; }
+    public static double subtract(double a,double b) { return a-b; }
+    public static double multiply(double a,double b) { return a*b; }
+    public static double divide(double a,double b) {
+        if(b==0) throw new IllegalArgumentException(&quot;Cannot divide by zero&quot;);
+        return a/b;
+    }
+    public static double calculate(double a,String op,double b) {
+        switch(op) {
+            case &quot;+&quot;: return add(a,b); case &quot;-&quot;: return subtract(a,b);
+            case &quot;*&quot;: return multiply(a,b); case &quot;/&quot;: return divide(a,b);
+            default: throw new IllegalArgumentException(&quot;Unknown operation&quot;);
+        }
+    }
+    public static void main(String[] args) {
+        double first=Input.number(&quot;First operand: &quot;);
+        while(true) {
+            String op=Input.text(&quot;Operation (+ - * /): &quot;);
+            double second=Input.number(&quot;Second operand: &quot;);
+            try {
+                double result=calculate(first,op,second);
+                if(!Double.isFinite(result)) throw new IllegalArgumentException(&quot;Result is not finite&quot;);
+                System.out.printf(java.util.Locale.US,&quot;%.4f %s %.4f = %.4f%n&quot;,first,op,second,result);
+                first=result;
+            } catch(IllegalArgumentException e) { System.out.println(e.getMessage()); continue; }
+            String next=Input.text(&quot;C: continue with result; N: new calculation; anything else: quit: &quot;);
+            if(next.equalsIgnoreCase(&quot;n&quot;)) first=Input.number(&quot;First operand: &quot;);
+            else if(!next.equalsIgnoreCase(&quot;c&quot;)) break;
+        }
+    }
+}
+</code></pre></details></section><section><h2>28 сентября, 23:59 — Class 6. Arrays</h2><p>Отдельного описания нет. Практика: Project 6. Покажи индексы, длину, поиск и работу со значениями меньше нуля.</p></section><section id="project6"><h2>05.10, 09:00 — Project 6. Arrays</h2><p><a href="https://auk.instructure.com/courses/1274/assignments/33047">Canvas</a> · <a href="project6/README.md">Инструкция проекта</a> · <a href="https://github.com/kkkumich/sdt100-project-06">Адрес репозитория (статус см. GITHUB-STATUS.txt)</a></p><h3>Что показать</h3><p>Покажи создание массивов трёх видов, пять типов элементов, length, обращение по индексу, три способа обхода и ошибку неверного индекса. Затем ввод, случайный массив, сумму, максимум, поиск и меню контактов.</p><h3>Что сказать своими словами</h3><p>Массив имеет фиксированную длину; допустимые индексы — от 0 до length-1. Линейный поиск обходит элементы до первого совпадения и возвращает индекс либо -1. Максимум начинается с первого элемента, поэтому корректно работает и для полностью отрицательных массивов. Для суммы используется long.</p><h3>Вопросы преподавателя</h3><p><b>Чем размер массива отличается от количества контактов?</b><br>Размер — вместимость, count — число действительно добавленных элементов.</p><p><b>Что означает DELETED?</b><br>Логическое удаление: слот остаётся, но прежний текст заменяется.</p><p><b>Почему enhanced for не даёт индекс?</b><br>Он предназначен для обхода значений, индекс в нём не объявляется.</p><div class="notice">Необязательная база контактов включена. Примеры контактов вымышлены. Ошибка индекса намеренно перехватывается и выводится, чтобы демонстрация могла продолжиться.</div><h3>Запуск</h3><pre>powershell -File project6/run.ps1 -MainClass part1_array_syntax.Main
+powershell -File project6/run.ps1 -MainClass part2_array_handling.Main
+powershell -File project6/run.ps1 -MainClass part3_contacts.Main</pre><details><summary>project6/src/common/Input.java</summary><pre><code>package common;
+import java.util.Scanner;
+/** Read complete lines to avoid the nextInt/nextLine newline problem. */
+public final class Input {
+    private static final Scanner IN = new Scanner(System.in);
+    private Input() { }
+    public static String text(String prompt) {
+        System.out.print(prompt);
+        if (!IN.hasNextLine()) throw new IllegalStateException(&quot;Input ended before the dialog finished&quot;);
+        return IN.nextLine().trim();
+    }
+    public static int integer(String prompt, int min, int max) {
+        while (true) {
+            try { int n = Integer.parseInt(text(prompt));
+                if (n &gt;= min &amp;&amp; n &lt;= max) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a whole number from &quot; + min + &quot; to &quot; + max + &quot;.&quot;);
+        }
+    }
+    public static double number(String prompt) {
+        while (true) {
+            try { double n = Double.parseDouble(text(prompt));
+                if (Double.isFinite(n)) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a finite number; use a dot for decimals.&quot;);
+        }
+    }
+    public static boolean again() { return text(&quot;Continue? (Y/N): &quot;).equalsIgnoreCase(&quot;y&quot;); }
+}
+</code></pre></details><details><summary>project6/src/part1_array_syntax/Main.java</summary><pre><code>package part1_array_syntax;
+
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        int[] fixed=new int[10]; int size=3; int[] variable=new int[size];
+        int[] literal={1,4,2}; double[] prices={1.5,2.5}; String[] names={&quot;Ada&quot;,&quot;Linus&quot;};
+        char[] letters={'a','b'}; boolean[] flags={true,false};
+        fixed[4]=45;
+        System.out.println(&quot;5th element value: &quot;+fixed[4]+&quot;, length=&quot;+fixed.length);
+        System.out.println(&quot;Variable size: &quot;+variable.length);
+        System.out.println(Arrays.toString(prices)+Arrays.toString(names)+Arrays.toString(letters)+Arrays.toString(flags));
+        for(int i=0;i&lt;literal.length;i++) System.out.print(literal[i]+&quot; &quot;); System.out.println();
+        for(int value:literal) System.out.print(value+&quot; &quot;); System.out.println();
+        int i=0; while(i&lt;literal.length) System.out.print(literal[i++]+&quot; &quot;); System.out.println();
+        try { System.out.println(fixed[1000]); }
+        catch(ArrayIndexOutOfBoundsException e) { System.out.println(&quot;Expected demonstration: &quot;+e); }
+    }
+}
+</code></pre></details><details><summary>project6/src/part2_array_handling/Main.java</summary><pre><code>package part2_array_handling;
+
+import common.Input;
+import java.util.Random;
+import java.util.Arrays;
+public class Main {
+    public static int[] inputArray(int length) {
+        if(length&lt;0) throw new IllegalArgumentException(&quot;Negative length&quot;);
+        int[] a=new int[length];
+        for(int i=0;i&lt;length;i++) a[i]=Input.integer(&quot;Element &quot;+i+&quot;: &quot;,Integer.MIN_VALUE,Integer.MAX_VALUE);
+        return a;
+    }
+    public static int[] randomArray(int length) {
+        if(length&lt;0) throw new IllegalArgumentException(&quot;Negative length&quot;);
+        Random random=new Random(); int[] a=new int[length];
+        for(int i=0;i&lt;length;i++) a[i]=random.nextInt(201)-100;
+        return a;
+    }
+    public static void printArray(int[] a) { System.out.println(Arrays.toString(a)); }
+    public static long sum(int[] a) { long sum=0; for(int v:a) sum+=v; return sum; }
+    public static int max(int[] a) {
+        if(a.length==0) throw new IllegalArgumentException(&quot;Empty array has no maximum&quot;);
+        int best=a[0]; for(int value:a) if(value&gt;best) best=value; return best;
+    }
+    public static int search(int[] a,int target) {
+        for(int i=0;i&lt;a.length;i++) if(a[i]==target) return i; return -1;
+    }
+    public static void main(String[] args) {
+        int n=Input.integer(&quot;Length of input array (1-1000): &quot;,1,1000);
+        int[] a=inputArray(n); printArray(a); System.out.println(&quot;Sum: &quot;+sum(a));
+        n=Input.integer(&quot;Length of random array (1-1000): &quot;,1,1000);
+        int[] b=randomArray(n); printArray(b); System.out.println(&quot;Maximum: &quot;+max(b));
+        int target=Input.integer(&quot;Search for an integer in the input array: &quot;,Integer.MIN_VALUE,Integer.MAX_VALUE);
+        System.out.println(&quot;Index (-1 means absent): &quot;+search(a,target));
+    }
+}
+</code></pre></details><details><summary>project6/src/part3_contacts/Main.java</summary><pre><code>package part3_contacts;
+
+import common.Input;
+import java.util.Arrays;
+public class Main {
+    // Optional task: fixed capacity plus an independent count, not an ArrayList.
+    private final String[] contacts=new String[100];
+    private int count=0;
+    public int size() { return count; }
+    public String get(int index) { check(index); return contacts[index]; }
+    private void check(int index) { if(index&lt;0 || index&gt;=count) throw new IllegalArgumentException(&quot;No such contact&quot;); }
+    public void add(String value) {
+        if(count==contacts.length) throw new IllegalArgumentException(&quot;Contact storage is full&quot;);
+        if(value.trim().isEmpty() || value.equals(&quot;DELETED&quot;)) throw new IllegalArgumentException(&quot;Contact cannot be blank or DELETED&quot;);
+        contacts[count++]=value.trim();
+    }
+    public void edit(int index,String value) {
+        check(index); if(value.trim().isEmpty() || value.equals(&quot;DELETED&quot;)) throw new IllegalArgumentException(&quot;Invalid contact&quot;);
+        contacts[index]=value.trim();
+    }
+    public void delete(int index) { check(index); contacts[index]=&quot;DELETED&quot;; }
+    public void clear() { Arrays.fill(contacts,&quot;&quot;); count=0; }
+    public void show(String phrase) {
+        boolean found=false;
+        for(int i=0;i&lt;count;i++) if(!contacts[i].equals(&quot;DELETED&quot;) &amp;&amp; contacts[i].contains(phrase)) {
+            System.out.println((i+1)+&quot;. &quot;+contacts[i]); found=true;
+        }
+        if(!found) System.out.println(&quot;No matching contacts.&quot;);
+    }
+    public static void main(String[] args) {
+        Main book=new Main();
+        while(true) {
+            System.out.println(&quot;1 Add | 2 Show | 3 Search | 4 Edit | 5 Delete | 6 Delete all | 7 Samples | 0 Exit&quot;);
+            int choice=Input.integer(&quot;Choose: &quot;,0,7);
+            try {
+                switch(choice) {
+                    case 0: return;
+                    case 1:
+                        while(true) { String s=Input.text(&quot;Contact (empty line finishes): &quot;); if(s.isEmpty()) break; book.add(s); } break;
+                    case 2: book.show(&quot;&quot;); break;
+                    case 3: book.show(Input.text(&quot;Search phrase (case-sensitive): &quot;)); break;
+                    case 4:
+                        if(book.size()==0) { System.out.println(&quot;No contacts.&quot;); break; }
+                        int index=Input.integer(&quot;Contact number: &quot;,1,book.size())-1;
+                        System.out.println(&quot;Current: &quot;+book.get(index)); book.edit(index,Input.text(&quot;New value: &quot;)); break;
+                    case 5:
+                        if(book.size()==0) { System.out.println(&quot;No contacts.&quot;); break; }
+                        book.delete(Input.integer(&quot;Contact number: &quot;,1,book.size())-1); break;
+                    case 6: book.clear(); break;
+                    case 7: book.add(&quot;Demo Ada, ada@example.test&quot;); book.add(&quot;Demo Linus, linus@example.test&quot;); break;
+                    default: throw new IllegalStateException(&quot;Unexpected choice&quot;);
+                }
+            } catch(IllegalArgumentException e) { System.out.println(e.getMessage()); }
+        }
+    }
+}
+</code></pre></details></section><section><h2>Архивный Feedback — 6 октября 2023</h2><p>На странице задания указан именно 2023 год, хотя курс называется FA26. Требуются две анкеты из старых email/чата и скриншоты сообщений об успешной отправке, а не скриншоты ответов. Ссылок на анкеты на странице нет. Это личная оценка курса: отзывы не выдумывались и анкеты не отправлялись.</p></section><section id="project7"><h2>12.10, 09:00 — Project 7. Array algorithms</h2><p><a href="https://auk.instructure.com/courses/1274/assignments/33048">Canvas</a> · <a href="project7/README.md">Инструкция проекта</a> · <a href="https://github.com/kkkumich/sdt100-project-07">Адрес репозитория (статус см. GITHUB-STATUS.txt)</a></p><h3>Что показать</h3><p>Введи 5, -1, 5, 0, 2. Покажи массив до и после сортировки. Открой trace.html: в нём каждое сравнение, а переставленные пары выделены жирным.</p><h3>Что сказать своими словами</h3><p>Bubble sort сравнивает соседей и меняет их местами, если они стоят в неправильном порядке. После прохода максимум неотсортированной части оказывается справа. Поэтому внутренняя граница уменьшается; если за проход нет обменов, сортировка заканчивается досрочно.</p><h3>Вопросы преподавателя</h3><p><b>Сложность?</b><br>O(n²) в среднем и худшем случае, O(n) в лучшем с флагом swapped. Дополнительная память O(1).</p><p><b>Стабильная ли сортировка?</b><br>Да: равные значения не меняются местами, потому что сравнение строгое &gt;.</p><p><b>Зачем временная переменная?</b><br>Чтобы не потерять значение первого элемента при обмене.</p><div class="notice">Трассировка получена настоящим запуском случайного массива из пяти элементов с фиксированным seed 150. Seed нужен для воспроизводимости, а не для подмены случайной генерации.</div><h3>Запуск</h3><pre>powershell -File project7/run.ps1 -MainClass part1_bubble_sort.Main
+powershell -File project7/run.ps1 -MainClass part2_trace.Main</pre><p><a href="project7/flowchart.svg">Блок-схема</a></p><p><a href="project7/trace.html">Каждая итерация bubble sort</a></p><details><summary>project7/src/common/Input.java</summary><pre><code>package common;
+import java.util.Scanner;
+/** Read complete lines to avoid the nextInt/nextLine newline problem. */
+public final class Input {
+    private static final Scanner IN = new Scanner(System.in);
+    private Input() { }
+    public static String text(String prompt) {
+        System.out.print(prompt);
+        if (!IN.hasNextLine()) throw new IllegalStateException(&quot;Input ended before the dialog finished&quot;);
+        return IN.nextLine().trim();
+    }
+    public static int integer(String prompt, int min, int max) {
+        while (true) {
+            try { int n = Integer.parseInt(text(prompt));
+                if (n &gt;= min &amp;&amp; n &lt;= max) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a whole number from &quot; + min + &quot; to &quot; + max + &quot;.&quot;);
+        }
+    }
+    public static double number(String prompt) {
+        while (true) {
+            try { double n = Double.parseDouble(text(prompt));
+                if (Double.isFinite(n)) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a finite number; use a dot for decimals.&quot;);
+        }
+    }
+    public static boolean again() { return text(&quot;Continue? (Y/N): &quot;).equalsIgnoreCase(&quot;y&quot;); }
+}
+</code></pre></details><details><summary>project7/src/part1_bubble_sort/Main.java</summary><pre><code>package part1_bubble_sort;
+
+import common.Input;
+import java.util.Arrays;
+import java.util.Random;
+public class Main {
+    public static int[] inputArray(int length) {
+        if(length&lt;0) throw new IllegalArgumentException(&quot;Negative length&quot;);
+        int[] a=new int[length];
+        for(int i=0;i&lt;length;i++) a[i]=Input.integer(&quot;Element &quot;+i+&quot;: &quot;,Integer.MIN_VALUE,Integer.MAX_VALUE);
+        return a;
+    }
+    public static int[] randomArray(int length,Random random) {
+        if(length&lt;0) throw new IllegalArgumentException(&quot;Negative length&quot;);
+        int[] a=new int[length]; for(int i=0;i&lt;length;i++) a[i]=random.nextInt(100); return a;
+    }
+    public static void printArray(int[] a) { System.out.println(Arrays.toString(a)); }
+    public static void sort(int[] a) {
+        for(int end=a.length-1;end&gt;0;end--) {
+            boolean swapped=false;
+            // After each pass, the maximum in the unsorted prefix reaches end.
+            for(int j=0;j&lt;end;j++) if(a[j]&gt;a[j+1]) {
+                int temp=a[j]; a[j]=a[j+1]; a[j+1]=temp; swapped=true;
+            }
+            if(!swapped) break;
+        }
+    }
+    public static void main(String[] args) {
+        do {
+            int n=Input.integer(&quot;Number of elements (0-1000): &quot;,0,1000);
+            String mode=Input.text(&quot;G: generate; anything else: input: &quot;);
+            int[] a=mode.equalsIgnoreCase(&quot;g&quot;)?randomArray(n,new Random()):inputArray(n);
+            System.out.print(&quot;Before: &quot;); printArray(a); sort(a); System.out.print(&quot;After: &quot;); printArray(a);
+        } while(Input.again());
+    }
+}
+</code></pre></details><details><summary>project7/src/part2_trace/Main.java</summary><pre><code>package part2_trace;
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] a=part1_bubble_sort.Main.randomArray(5,new Random(150)); // Seed makes the random example reproducible.
+        System.out.println(&quot;&lt;p&gt;Random seed: 150&lt;/p&gt;&lt;p&gt;Initial: &quot;+java.util.Arrays.toString(a)+&quot;&lt;/p&gt;&quot;);
+        for(int end=a.length-1,pass=1;end&gt;0;end--,pass++) {
+            boolean swapped=false;
+            System.out.println(&quot;&lt;h3&gt;Outer loop, iteration &quot;+pass+&quot;&lt;/h3&gt;&lt;p&gt;Before: &quot;+java.util.Arrays.toString(a)+&quot;&lt;/p&gt;&quot;);
+            for(int j=0;j&lt;end;j++) {
+                boolean changed=a[j]&gt;a[j+1];
+                if(changed) { int temp=a[j]; a[j]=a[j+1]; a[j+1]=temp; swapped=true; }
+                StringBuilder row=new StringBuilder(&quot;&lt;p&gt;Inner iteration &quot;+(j+1)+&quot;: &quot;);
+                for(int k=0;k&lt;a.length;k++) {
+                    if(changed &amp;&amp; k==j) row.append(&quot;&lt;b&gt;&quot;);
+                    row.append(a[k]).append(' ');
+                    if(changed &amp;&amp; k==j+1) row.append(&quot;&lt;/b&gt;&quot;);
+                }
+                System.out.println(row.append(changed?&quot;(swap)&lt;/p&gt;&quot;:&quot;(no swap)&lt;/p&gt;&quot;));
+            }
+            if(!swapped) { System.out.println(&quot;&lt;p&gt;No swaps: early stop.&lt;/p&gt;&quot;); break; }
+        }
+        System.out.println(&quot;&lt;p&gt;Sorted: &quot;+java.util.Arrays.toString(a)+&quot;&lt;/p&gt;&quot;);
+    }
+}
+</code></pre></details></section><section><h2>12 октября, 23:30 — Midterm Exam</h2><p>На странице задания уже отображается оценка 14/15. Экзамен закрыт и требует Respondus; вопросы не доступны в описании. Повторная попытка не запускалась. Для устной подготовки повтори типы, условия, циклы, методы, массивы и трассировку сортировки.</p></section><section id="project8"><h2>26.10, 09:00 — Project 8. Recursion</h2><p><a href="https://auk.instructure.com/courses/1274/assignments/33049">Canvas</a> · <a href="project8/README.md">Инструкция проекта</a> · <a href="https://github.com/kkkumich/sdt100-project-08">Адрес репозитория (статус см. GITHUB-STATUS.txt)</a></p><h3>Что показать</h3><p>Для n=9 покажи прямой и обратный порядок, затем изолированный StackOverflowError, сумму массива, число совпадений и рекурсивные операции со строками.</p><h3>Что сказать своими словами</h3><p>Рекурсивный метод вызывает себя для меньшей задачи. Базовый случай останавливает цепочку вызовов. Печать до рекурсивного вызова даёт обратный отсчёт, после вызова — возрастающий порядок. Каждый незавершённый вызов занимает кадр стека.</p><h3>Вопросы преподавателя</h3><p><b>Почему возникает StackOverflowError?</b><br>Без базового случая вызовы накапливаются до исчерпания стека.</p><p><b>Сложность обхода массива?</b><br>O(n) времени и O(n) глубины стека.</p><p><b>Почему reverseString с substring может быть O(n²)?</b><br>Создание подстрок и конкатенации на каждом уровне требуют копирования текста.</p><div class="notice">Намеренная рекурсия без базового случая вынесена отдельно. На больших данных итеративный алгоритм предпочтительнее из-за ограничения глубины стека.</div><h3>Запуск</h3><pre>powershell -File project8/run.ps1 -MainClass part1_recursion.Main
+powershell -File project8/run.ps1 -MainClass part1_overflow.Main
+powershell -File project8/run.ps1 -MainClass part2_recursive_arrays.Main
+powershell -File project8/run.ps1 -MainClass part3_recursive_strings.Main</pre><details><summary>project8/src/common/Input.java</summary><pre><code>package common;
+import java.util.Scanner;
+/** Read complete lines to avoid the nextInt/nextLine newline problem. */
+public final class Input {
+    private static final Scanner IN = new Scanner(System.in);
+    private Input() { }
+    public static String text(String prompt) {
+        System.out.print(prompt);
+        if (!IN.hasNextLine()) throw new IllegalStateException(&quot;Input ended before the dialog finished&quot;);
+        return IN.nextLine().trim();
+    }
+    public static int integer(String prompt, int min, int max) {
+        while (true) {
+            try { int n = Integer.parseInt(text(prompt));
+                if (n &gt;= min &amp;&amp; n &lt;= max) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a whole number from &quot; + min + &quot; to &quot; + max + &quot;.&quot;);
+        }
+    }
+    public static double number(String prompt) {
+        while (true) {
+            try { double n = Double.parseDouble(text(prompt));
+                if (Double.isFinite(n)) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a finite number; use a dot for decimals.&quot;);
+        }
+    }
+    public static boolean again() { return text(&quot;Continue? (Y/N): &quot;).equalsIgnoreCase(&quot;y&quot;); }
+}
+</code></pre></details><details><summary>project8/src/part1_overflow/Main.java</summary><pre><code>package part1_overflow;
+
+public class Main {
+    static void noBaseCase() { noBaseCase(); }
+    public static void main(String[] args) {
+        // Deliberate, isolated demonstration. Never use this algorithm in real code.
+        try { noBaseCase(); }
+        catch(StackOverflowError e) { System.out.println(&quot;Expected demonstration: &quot;+e); }
+    }
+}
+</code></pre></details><details><summary>project8/src/part1_recursion/Main.java</summary><pre><code>package part1_recursion;
+
+import common.Input;
+public class Main {
+    public static void printNumberBackward(int n) { if(n&lt;=0) return; System.out.print(n+&quot; &quot;); printNumberBackward(n-1); }
+    public static void printNumber(int n) { if(n&lt;=0) return; printNumber(n-1); System.out.print(n+&quot; &quot;); }
+    public static void main(String[] args) {
+        int n=Input.integer(&quot;n (0-500): &quot;,0,500);
+        printNumberBackward(n); System.out.println(); printNumber(n); System.out.println();
+    }
+}
+</code></pre></details><details><summary>project8/src/part2_recursive_arrays/Main.java</summary><pre><code>package part2_recursive_arrays;
+
+public class Main {
+    public static void printArray(int[] a,int i) { if(i&gt;=a.length) return; System.out.print(a[i]+&quot; &quot;); printArray(a,i+1); }
+    public static int arraySum(int[] a,int i) { return i&gt;=a.length?0:Math.addExact(a[i],arraySum(a,i+1)); }
+    public static int findCountInArray(int[] a,int what,int i) { return i&gt;=a.length?0:(a[i]==what?1:0)+findCountInArray(a,what,i+1); }
+    public static void main(String[] args) {
+        int[] a={2,5,2,-1,2}; printArray(a,0); System.out.println();
+        System.out.println(&quot;Sum: &quot;+arraySum(a,0)); System.out.println(&quot;Count of 2: &quot;+findCountInArray(a,2,0));
+    }
+}
+</code></pre></details><details><summary>project8/src/part3_recursive_strings/Main.java</summary><pre><code>package part3_recursive_strings;
+
+public class Main {
+    public static void printString(String s) { if(s.isEmpty()) return; System.out.println(s.charAt(0)); printString(s.substring(1)); }
+    public static void printReverseString(String s) { if(s.isEmpty()) return; printReverseString(s.substring(1)); System.out.println(s.charAt(0)); }
+    public static String reverseString(String s) { return s.isEmpty()?&quot;&quot;:reverseString(s.substring(1))+s.charAt(0); }
+    public static void main(String[] args) { printString(&quot;Java&quot;); printReverseString(&quot;Java&quot;); System.out.println(reverseString(&quot;Java&quot;)); }
+}
+</code></pre></details></section><section id="project9"><h2>26.10, 09:00 — Project 9. Classes and objects</h2><p><a href="https://auk.instructure.com/courses/1274/assignments/33050">Canvas</a> · <a href="project9/README.md">Инструкция проекта</a> · <a href="https://github.com/kkkumich/sdt100-project-09">Адрес репозитория (статус см. GITHUB-STATUS.txt)</a></p><h3>Что показать</h3><p>Покажи восемь отдельных примеров классов, сообщения конструктора, private/public, getters/setters, два разных объекта Book, static и сортировку пяти пицц.</p><h3>Что сказать своими словами</h3><p>Класс задаёт структуру и поведение, объект — конкретный экземпляр. Конструктор задаёт начальное состояние. private закрывает прямой доступ к полю, а setter может проверить значение. Book объединяет данные книги и вычисление времени чтения. static принадлежит классу, а не отдельному объекту.</p><h3>Вопросы преподавателя</h3><p><b>Зачем this?</b><br>Ссылается на текущий экземпляр и различает поле и одноимённый параметр.</p><p><b>Чем static отличается от instance-поля?</b><br>Одна общая переменная класса против отдельного значения в каждом объекте.</p><p><b>Почему private нельзя вызвать из main другого класса?</b><br>Ограничение доступа проверяет компилятор; настоящие примеры ошибок лежат в error_examples.</p><div class="notice">Тема книг выбрана как пример хобби. Перед защитой лучше заменить книги на действительно знакомые тебе. Необязательные static и Pizza включены.</div><h3>Запуск</h3><pre>powershell -File project9/run.ps1 -MainClass part1_objects.Main
+powershell -File project9/run.ps1 -MainClass part2_hobby.Main
+powershell -File project9/run.ps1 -MainClass part3_static.Main
+powershell -File project9/run.ps1 -MainClass part4_pizza.Main</pre><details><summary>project9/src/books/Book.java</summary><pre><code>package books;
+/** A book is one hobby artefact. Different instances have independent state. */
+public class Book {
+    public String notes=&quot;&quot;; // Public member required by Project 13.
+    private String title,author;
+    private int year,pages;
+    public Book(String title,String author,int year,int pages) { setTitle(title); setAuthor(author); setYear(year); setPages(pages); }
+    public String getTitle() { return title; }
+    public void setTitle(String value) { if(value==null || value.trim().isEmpty()) throw new IllegalArgumentException(&quot;Blank title&quot;); title=value.trim(); }
+    public String getAuthor() { return author; }
+    public void setAuthor(String value) { if(value==null || value.trim().isEmpty()) throw new IllegalArgumentException(&quot;Blank author&quot;); author=value.trim(); }
+    public int getYear() { return year; }
+    public void setYear(int value) { if(value&lt;1 || value&gt;9999) throw new IllegalArgumentException(&quot;Year must be 1-9999&quot;); year=value; }
+    public int getPages() { return pages; }
+    public void setPages(int value) { if(value&lt;1) throw new IllegalArgumentException(&quot;Pages must be positive&quot;); pages=value; }
+    public double readingHours() { return pages/30.0; }
+    public String getDescription() { return title+&quot;\nAuthor: &quot;+author+&quot;\nYear: &quot;+year+&quot;\nPages: &quot;+pages+&quot;\nEstimated reading hours (30 pages/hour): &quot;+readingHours()+&quot;\nNotes: &quot;+notes; }
+}
+</code></pre></details><details><summary>project9/src/common/Input.java</summary><pre><code>package common;
+import java.util.Scanner;
+/** Read complete lines to avoid the nextInt/nextLine newline problem. */
+public final class Input {
+    private static final Scanner IN = new Scanner(System.in);
+    private Input() { }
+    public static String text(String prompt) {
+        System.out.print(prompt);
+        if (!IN.hasNextLine()) throw new IllegalStateException(&quot;Input ended before the dialog finished&quot;);
+        return IN.nextLine().trim();
+    }
+    public static int integer(String prompt, int min, int max) {
+        while (true) {
+            try { int n = Integer.parseInt(text(prompt));
+                if (n &gt;= min &amp;&amp; n &lt;= max) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a whole number from &quot; + min + &quot; to &quot; + max + &quot;.&quot;);
+        }
+    }
+    public static double number(String prompt) {
+        while (true) {
+            try { double n = Double.parseDouble(text(prompt));
+                if (Double.isFinite(n)) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a finite number; use a dot for decimals.&quot;);
+        }
+    }
+    public static boolean again() { return text(&quot;Continue? (Y/N): &quot;).equalsIgnoreCase(&quot;y&quot;); }
+}
+</code></pre></details><details><summary>project9/src/part1_objects/Main.java</summary><pre><code>package part1_objects;
+
+// Each numbered task has its own example class, above Main as requested.
+class EmptyExample { }
+class PublicMethod { public void print(String s) { System.out.println(s); } }
+class PrivateMethod { private String secret() { return &quot;private helper&quot;; } public void demonstrate() { System.out.println(secret()); } }
+class ConstructorExample { ConstructorExample() { System.out.println(&quot;Constructor was called&quot;); } }
+class PublicFields { public int count=2; public double price=3.5; public boolean active=true; public String name=&quot;Demo&quot;;
+    public void print() { System.out.println(name+&quot; &quot;+count+&quot; &quot;+price+&quot; &quot;+active); } }
+class PrivateFields { private int number=7; public void show() { System.out.println(&quot;Private value via method: &quot;+number); } }
+class Accessors {
+    private int count; private double cost; private boolean available; private String label;
+    public int getCount(){return count;} public void setCount(int n){count=n;}
+    public double getCost(){return cost;} public void setCost(double n){cost=n;}
+    public boolean isAvailable(){return available;} public void setAvailable(boolean n){available=n;}
+    public String getLabel(){return label;} public void setLabel(String n){label=n;}
+}
+class ArgumentConstructor { private String name; ArgumentConstructor(String name){this.name=name;} public String getName(){return name;} }
+public class Main {
+    public static void main(String[] args) {
+        EmptyExample object=new EmptyExample(); System.out.println(object.getClass().getSimpleName());
+        new PublicMethod().print(&quot;Public method call&quot;); new PrivateMethod().demonstrate(); new ConstructorExample();
+        PublicFields publicFields=new PublicFields(); publicFields.count=5; publicFields.print(); new PrivateFields().show();
+        Accessors a=new Accessors(); a.setCount(3); a.setCost(12.5); a.setAvailable(true); a.setLabel(&quot;Example&quot;);
+        System.out.println(a.getLabel()+&quot; &quot;+a.getCount()+&quot; &quot;+a.getCost()+&quot; &quot;+a.isAvailable());
+        System.out.println(new ArgumentConstructor(&quot;Constructor argument&quot;).getName());
+    }
+}
+</code></pre></details><details><summary>project9/src/part2_hobby/Main.java</summary><pre><code>package part2_hobby;
+
+import books.Book;
+public class Main {
+    public static void main(String[] args) {
+        Book first=new Book(&quot;The Hobbit&quot;,&quot;J. R. R. Tolkien&quot;,1937,310);
+        Book second=new Book(&quot;Animal Farm&quot;,&quot;George Orwell&quot;,1945,112);
+        second.setPages(120); first.notes=&quot;Fantasy&quot;;
+        System.out.println(first.getDescription()); System.out.println(second.getDescription());
+        System.out.println(&quot;First title: &quot;+first.getTitle()+&quot;, author: &quot;+first.getAuthor());
+    }
+}
+</code></pre></details><details><summary>project9/src/part3_static/Main.java</summary><pre><code>package part3_static;
+
+class Counter {
+    public static int total=0;
+    Counter() { total++; }
+    public static String label(){return &quot;Count=&quot;+total;}
+    public static void staticCaller(){System.out.println(label());}
+    public void instanceCaller(){System.out.println(label());}
+}
+public class Main {
+    @SuppressWarnings(&quot;static-access&quot;)
+    public static void main(String[] args) {
+        Counter first=new Counter(), second=new Counter(); Counter.total=5;
+        System.out.println(first.total+&quot; = &quot;+second.total); // Demonstrates shared state; prefer Counter.total in production.
+        Counter.staticCaller(); first.instanceCaller(); System.out.println(Counter.label());
+    }
+}
+</code></pre></details><details><summary>project9/src/part4_pizza/Main.java</summary><pre><code>package part4_pizza;
+
+import common.Input;
+public class Main {
+    public static void main(String[] args) {
+        String[] names=new String[5]; int[] prices=new int[5];
+        for(int i=0;i&lt;5;i++){names[i]=Input.text(&quot;Pizza name &quot;+(i+1)+&quot;: &quot;);prices[i]=Input.integer(&quot;Price: &quot;,0,Integer.MAX_VALUE);}
+        Pizza[] pizzas=new Pizza[5]; for(int i=0;i&lt;5;i++)pizzas[i]=new Pizza(names[i],prices[i]);
+        for(int end=4;end&gt;0;end--)for(int j=0;j&lt;end;j++)if(pizzas[j].getPrice()&gt;pizzas[j+1].getPrice()){
+            Pizza temp=pizzas[j];pizzas[j]=pizzas[j+1];pizzas[j+1]=temp;
+        }
+        for(Pizza pizza:pizzas)System.out.println(pizza.getDescription());
+    }
+}
+</code></pre></details><details><summary>project9/src/part4_pizza/Pizza.java</summary><pre><code>package part4_pizza;
+public class Pizza {
+    private String name; private int price;
+    public Pizza(String name,int price){setName(name);setPrice(price);}
+    public String getName(){return name;} public void setName(String value){if(value.trim().isEmpty())throw new IllegalArgumentException(&quot;Blank name&quot;);name=value;}
+    public int getPrice(){return price;} public void setPrice(int value){if(value&lt;0)throw new IllegalArgumentException(&quot;Negative price&quot;);price=value;}
+    public String getDescription(){return name+&quot;: &quot;+price;}
+}
+</code></pre></details></section><section id="project10"><h2>09.11, 09:00 — Project 10. Classes and objects (part 2)</h2><p><a href="https://auk.instructure.com/courses/1274/assignments/33052">Canvas</a> · <a href="project10/README.md">Инструкция проекта</a> · <a href="https://github.com/kkkumich/sdt100-project-10">Адрес репозитория (статус см. GITHUB-STATUS.txt)</a></p><h3>Что показать</h3><p>Сначала покажи, как две ссылки меняют один Box. Затем отличие изменения поля от переназначения параметра. В библиотеке добавь книги, отсортируй и найди по названию и году.</p><h3>Что сказать своими словами</h3><p>Java передаёт всё по значению. Для объекта передаётся копия значения ссылки. Через неё можно изменить общий объект, но присваивание параметру new Box не меняет переменную вызывающей стороны. BookLibrary хранит массив объектов и отдельный count, а методы скрывают детали хранения.</p><h3>Вопросы преподавателя</h3><p><b>Передача объектов — по ссылке?</b><br>Точно: по значению ссылки, не pass-by-reference переменной.</p><p><b>Что сортируется: книги или копии книг?</b><br>Меняются ссылки внутри массива; сами объекты не копируются.</p><p><b>Почему нельзя обходить весь массив из 100 элементов?</b><br>После count находятся неиспользованные null-слоты.</p><div class="notice">Выбран полный вариант интерактивного меню, а не упрощённый вариант с объектами только в коде.</div><h3>Запуск</h3><pre>powershell -File project10/run.ps1 -MainClass part1_references.Main
+powershell -File project10/run.ps1 -MainClass part2_library.Main</pre><details><summary>project10/src/books/Book.java</summary><pre><code>package books;
+/** A book is one hobby artefact. Different instances have independent state. */
+public class Book {
+    public String notes=&quot;&quot;; // Public member required by Project 13.
+    private String title,author;
+    private int year,pages;
+    public Book(String title,String author,int year,int pages) { setTitle(title); setAuthor(author); setYear(year); setPages(pages); }
+    public String getTitle() { return title; }
+    public void setTitle(String value) { if(value==null || value.trim().isEmpty()) throw new IllegalArgumentException(&quot;Blank title&quot;); title=value.trim(); }
+    public String getAuthor() { return author; }
+    public void setAuthor(String value) { if(value==null || value.trim().isEmpty()) throw new IllegalArgumentException(&quot;Blank author&quot;); author=value.trim(); }
+    public int getYear() { return year; }
+    public void setYear(int value) { if(value&lt;1 || value&gt;9999) throw new IllegalArgumentException(&quot;Year must be 1-9999&quot;); year=value; }
+    public int getPages() { return pages; }
+    public void setPages(int value) { if(value&lt;1) throw new IllegalArgumentException(&quot;Pages must be positive&quot;); pages=value; }
+    public double readingHours() { return pages/30.0; }
+    public String getDescription() { return title+&quot;\nAuthor: &quot;+author+&quot;\nYear: &quot;+year+&quot;\nPages: &quot;+pages+&quot;\nEstimated reading hours (30 pages/hour): &quot;+readingHours()+&quot;\nNotes: &quot;+notes; }
+}
+</code></pre></details><details><summary>project10/src/common/Input.java</summary><pre><code>package common;
+import java.util.Scanner;
+/** Read complete lines to avoid the nextInt/nextLine newline problem. */
+public final class Input {
+    private static final Scanner IN = new Scanner(System.in);
+    private Input() { }
+    public static String text(String prompt) {
+        System.out.print(prompt);
+        if (!IN.hasNextLine()) throw new IllegalStateException(&quot;Input ended before the dialog finished&quot;);
+        return IN.nextLine().trim();
+    }
+    public static int integer(String prompt, int min, int max) {
+        while (true) {
+            try { int n = Integer.parseInt(text(prompt));
+                if (n &gt;= min &amp;&amp; n &lt;= max) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a whole number from &quot; + min + &quot; to &quot; + max + &quot;.&quot;);
+        }
+    }
+    public static double number(String prompt) {
+        while (true) {
+            try { double n = Double.parseDouble(text(prompt));
+                if (Double.isFinite(n)) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a finite number; use a dot for decimals.&quot;);
+        }
+    }
+    public static boolean again() { return text(&quot;Continue? (Y/N): &quot;).equalsIgnoreCase(&quot;y&quot;); }
+}
+</code></pre></details><details><summary>project10/src/library/BookLibrary.java</summary><pre><code>package library;
+import books.Book;
+public class BookLibrary {
+    private Book[] books=new Book[100]; private int count=0;
+    public int size(){return count;}
+    public Book get(int i){if(i&lt;0||i&gt;=count)throw new IllegalArgumentException(&quot;Invalid index&quot;);return books[i];}
+    public void add(Book book){if(book==null)throw new IllegalArgumentException(&quot;Null book&quot;);if(count==books.length)throw new IllegalArgumentException(&quot;Library full&quot;);books[count++]=book;}
+    public void printOne(int i){System.out.println((i+1)+&quot;. &quot;+get(i).getDescription());}
+    public void print(){for(int i=0;i&lt;count;i++)printOne(i);if(count==0)System.out.println(&quot;No books.&quot;);}
+    public void find(String s){for(int i=0;i&lt;count;i++)if(books[i].getTitle().toLowerCase(java.util.Locale.ROOT).contains(s.toLowerCase(java.util.Locale.ROOT)))printOne(i);}
+    public void findByYear(int year){for(int i=0;i&lt;count;i++)if(books[i].getYear()==year)printOne(i);}
+    public void sort(){for(int end=count-1;end&gt;0;end--){boolean swapped=false;for(int j=0;j&lt;end;j++)if(books[j].getYear()&gt;books[j+1].getYear()){
+        Book temp=books[j];books[j]=books[j+1];books[j+1]=temp;swapped=true;
+    }if(!swapped)break;}}
+}
+</code></pre></details><details><summary>project10/src/part1_references/Main.java</summary><pre><code>package part1_references;
+
+class Box { public int value; }
+public class Main {
+    static void change(Box box){box.value=99;} // Reference value is copied; both references point to the same object.
+    static void reassign(Box box){box=new Box();box.value=-1;} // Reassigning the local parameter does not reassign the caller.
+    public static void main(String[] args) {
+        Box first=new Box();Box second=first;first.value=10;
+        System.out.println(&quot;After first.value=10: &quot;+first.value+&quot;, &quot;+second.value);
+        second.value=20;System.out.println(&quot;After second.value=20: &quot;+first.value+&quot;, &quot;+second.value);
+        change(first);System.out.println(&quot;After mutation in method: &quot;+first.value+&quot;, &quot;+second.value);
+        reassign(first);System.out.println(&quot;After local reassignment: &quot;+first.value+&quot;, &quot;+second.value);
+        System.out.println(&quot;Same object: &quot;+(first==second));
+    }
+}
+</code></pre></details><details><summary>project10/src/part2_library/Main.java</summary><pre><code>package part2_library;
+
+import books.Book;
+import library.BookLibrary;
+import common.Input;
+public class Main {
+    public static void inputItems(BookLibrary library){
+        do {String title=Input.text(&quot;Title: &quot;);String author=Input.text(&quot;Author: &quot;);int year=Input.integer(&quot;Year: &quot;,1,9999);int pages=Input.integer(&quot;Pages: &quot;,1,1000000);library.add(new Book(title,author,year,pages));}while(Input.again());
+    }
+    public static void search(BookLibrary library){library.find(Input.text(&quot;Title contains: &quot;));}
+    public static void sort(BookLibrary library){library.sort();System.out.println(&quot;Sorted by year.&quot;);}
+    public static void main(String[] args){BookLibrary library=new BookLibrary();while(true){
+        System.out.println(&quot;1 Add | 2 Print | 3 Sort by year | 4 Find title | 5 Find year | 0 Exit&quot;);
+        try {switch(Input.integer(&quot;Choose: &quot;,0,5)){
+            case 0:return;case 1:inputItems(library);break;case 2:library.print();break;case 3:sort(library);break;case 4:search(library);break;case 5:library.findByYear(Input.integer(&quot;Year: &quot;,1,9999));break;
+        }}catch(IllegalArgumentException e){System.out.println(e.getMessage());}
+    }}
+}
+</code></pre></details></section><section id="project11"><h2>16.11, 09:00 — Project 11. Collections and ArrayList</h2><p><a href="https://auk.instructure.com/courses/1274/assignments/33053">Canvas</a> · <a href="project11/README.md">Инструкция проекта</a> · <a href="https://github.com/kkkumich/sdt100-project-11">Адрес репозитория (статус см. GITHUB-STATUS.txt)</a></p><h3>Что показать</h3><p>По очереди запусти четыре части: покупки; минимум/максимум/среднее до и после удаления отрицательных; оценки выше среднего и удаление одной минимальной; слова в предложениях.</p><h3>Что сказать своими словами</h3><p>ArrayList автоматически меняет вместимость, а size показывает число элементов. Для чисел используются обёртки Integer и Double. При вычислении среднего сумма делится на количество в вещественном типе. removeIf безопасно удаляет подходящие элементы без ручного изменения индекса.</p><h3>Вопросы преподавателя</h3><p><b>remove(1) и remove(Integer.valueOf(1)) одинаковы?</b><br>Для ArrayList&lt;Integer&gt; первая форма удаляет по индексу, вторая — по значению.</p><p><b>Что делать с пустым списком при среднем?</b><br>Среднее не определено; метод явно сообщает об этом исключением.</p><p><b>Что здесь считается словом?</b><br>Непустая последовательность, отделённая пробельными символами; пунктуация не удаляется.</p><div class="notice">При равных минимальных оценках удаляется одна первая минимальная оценка. Предложения сохраняются отдельными строками после фильтрации коротких слов.</div><h3>Запуск</h3><pre>powershell -File project11/run.ps1 -MainClass part1_shopping.Main
+powershell -File project11/run.ps1 -MainClass part2_numbers.Main
+powershell -File project11/run.ps1 -MainClass part3_grades.Main
+powershell -File project11/run.ps1 -MainClass part4_strings.Main</pre><details><summary>project11/src/common/Input.java</summary><pre><code>package common;
+import java.util.Scanner;
+/** Read complete lines to avoid the nextInt/nextLine newline problem. */
+public final class Input {
+    private static final Scanner IN = new Scanner(System.in);
+    private Input() { }
+    public static String text(String prompt) {
+        System.out.print(prompt);
+        if (!IN.hasNextLine()) throw new IllegalStateException(&quot;Input ended before the dialog finished&quot;);
+        return IN.nextLine().trim();
+    }
+    public static int integer(String prompt, int min, int max) {
+        while (true) {
+            try { int n = Integer.parseInt(text(prompt));
+                if (n &gt;= min &amp;&amp; n &lt;= max) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a whole number from &quot; + min + &quot; to &quot; + max + &quot;.&quot;);
+        }
+    }
+    public static double number(String prompt) {
+        while (true) {
+            try { double n = Double.parseDouble(text(prompt));
+                if (Double.isFinite(n)) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a finite number; use a dot for decimals.&quot;);
+        }
+    }
+    public static boolean again() { return text(&quot;Continue? (Y/N): &quot;).equalsIgnoreCase(&quot;y&quot;); }
+}
+</code></pre></details><details><summary>project11/src/part1_shopping/Main.java</summary><pre><code>package part1_shopping;
+public class Main {public static void main(String[] args){ShoppingListManager list=new ShoppingListManager();list.addItem(&quot;Milk&quot;);list.addItem(&quot;Bread&quot;);list.displayItems();list.removeItem(&quot;Milk&quot;);System.out.println(&quot;After removing Milk:&quot;);list.displayItems();}}
+</code></pre></details><details><summary>project11/src/part1_shopping/ShoppingListManager.java</summary><pre><code>package part1_shopping;
+import java.util.ArrayList;
+public class ShoppingListManager {
+    private final ArrayList&lt;String&gt; items=new ArrayList&lt;&gt;();
+    public void addItem(String item){if(item==null||item.trim().isEmpty())throw new IllegalArgumentException(&quot;Blank item&quot;);items.add(item);}
+    public boolean removeItem(String item){return items.remove(item);}
+    public void displayItems(){for(int i=0;i&lt;items.size();i++)System.out.println(i+&quot;: &quot;+items.get(i));}
+    public int size(){return items.size();}
+}
+</code></pre></details><details><summary>project11/src/part2_numbers/Main.java</summary><pre><code>package part2_numbers;
+import java.util.Random;
+public class Main {
+    static void report(NumberAnalyzer n){System.out.println(n);System.out.println(&quot;Average=&quot;+n.getAverage()+&quot;, max=&quot;+n.getMax()+&quot;, min=&quot;+n.getMin());}
+    public static void main(String[] args){NumberAnalyzer n=new NumberAnalyzer();Random r=new Random(150);for(int i=0;i&lt;5;i++){n.addNumber(-1-r.nextInt(50));n.addNumber(r.nextInt(51));}report(n);n.removeNegativeNumbers();System.out.println(&quot;After removing negatives:&quot;);report(n);}
+}
+</code></pre></details><details><summary>project11/src/part2_numbers/NumberAnalyzer.java</summary><pre><code>package part2_numbers;
+import java.util.ArrayList;
+public class NumberAnalyzer {
+    private final ArrayList&lt;Integer&gt; numbers=new ArrayList&lt;&gt;();
+    public void addNumber(int n){numbers.add(n);}
+    private void requireValues(){if(numbers.isEmpty())throw new IllegalStateException(&quot;No numbers&quot;);}
+    public double getAverage(){requireValues();long sum=0;for(int n:numbers)sum+=n;return (double)sum/numbers.size();}
+    public int getMax(){requireValues();int best=numbers.get(0);for(int n:numbers)best=Math.max(best,n);return best;}
+    public int getMin(){requireValues();int best=numbers.get(0);for(int n:numbers)best=Math.min(best,n);return best;}
+    public void removeNegativeNumbers(){numbers.removeIf(n-&gt;n&lt;0);}
+    public String toString(){return numbers.toString();}
+}
+</code></pre></details><details><summary>project11/src/part3_grades/Main.java</summary><pre><code>package part3_grades;
+public class Main {public static void main(String[] args){StudentGrades grades=new StudentGrades();for(double g:new double[]{80,90,70,100,70})grades.addGrade(g);System.out.println(grades);System.out.println(&quot;Average=&quot;+grades.getAverageGrade());System.out.println(&quot;Above average=&quot;+grades.getGradesAbove(grades.getAverageGrade()));grades.removeLowestGrade();System.out.println(&quot;After removing one lowest grade: &quot;+grades);}}
+</code></pre></details><details><summary>project11/src/part3_grades/StudentGrades.java</summary><pre><code>package part3_grades;
+import java.util.ArrayList;
+public class StudentGrades {
+    private final ArrayList&lt;Double&gt; grades=new ArrayList&lt;&gt;();
+    public void addGrade(double grade){if(!Double.isFinite(grade)||grade&lt;0||grade&gt;100)throw new IllegalArgumentException(&quot;Grade must be 0-100&quot;);grades.add(grade);}
+    public ArrayList&lt;Double&gt; getGradesAbove(double threshold){ArrayList&lt;Double&gt; result=new ArrayList&lt;&gt;();for(double g:grades)if(g&gt;threshold)result.add(g);return result;}
+    public double getAverageGrade(){if(grades.isEmpty())throw new IllegalStateException(&quot;No grades&quot;);double sum=0;for(double g:grades)sum+=g;return sum/grades.size();}
+    public void removeLowestGrade(){if(grades.isEmpty())throw new IllegalStateException(&quot;No grades&quot;);int index=0;for(int i=1;i&lt;grades.size();i++)if(grades.get(i)&lt;grades.get(index))index=i;grades.remove(index);}
+    public String toString(){return grades.toString();}
+}
+</code></pre></details><details><summary>project11/src/part4_strings/Main.java</summary><pre><code>package part4_strings;
+public class Main {public static void main(String[] args){StringListUtils words=new StringListUtils();words.addSentence(&quot;Java is a programming language&quot;);words.addSentence(&quot;We learn by doing&quot;);System.out.println(words);System.out.println(&quot;Words=&quot;+words.countWords()+&quot;, longest=&quot;+words.findLongestWord());words.removeShortWords(4);System.out.println(&quot;Words with length &gt;=4: &quot;+words);}}
+</code></pre></details><details><summary>project11/src/part4_strings/StringListUtils.java</summary><pre><code>package part4_strings;
+import java.util.ArrayList;
+public class StringListUtils {
+    private final ArrayList&lt;String&gt; sentences=new ArrayList&lt;&gt;();
+    public void addSentence(String s){if(s==null)throw new IllegalArgumentException(&quot;Null sentence&quot;);sentences.add(s);}
+    private String[] words(String s){return s.trim().isEmpty()?new String[0]:s.trim().split(&quot;\\s+&quot;);}
+    public int countWords(){int total=0;for(String s:sentences)total+=words(s).length;return total;}
+    public String findLongestWord(){String best=&quot;&quot;;for(String s:sentences)for(String word:words(s))if(word.length()&gt;best.length())best=word;return best;}
+    public void removeShortWords(int minLength){if(minLength&lt;0)throw new IllegalArgumentException(&quot;Negative length&quot;);for(int i=0;i&lt;sentences.size();i++){ArrayList&lt;String&gt; kept=new ArrayList&lt;&gt;();for(String word:words(sentences.get(i)))if(word.length()&gt;=minLength)kept.add(word);sentences.set(i,String.join(&quot; &quot;,kept));}}
+    public String toString(){return sentences.toString();}
+}
+</code></pre></details></section><section id="project12"><h2>23.11, 09:00 — Project 12. Working with Files</h2><p><a href="https://auk.instructure.com/courses/1274/assignments/33054">Canvas</a> · <a href="project12/README.md">Инструкция проекта</a> · <a href="https://github.com/kkkumich/sdt100-project-12">Адрес репозитория (статус см. GITHUB-STATUS.txt)</a></p><h3>Что показать</h3><p>Для статистики укажи data/notes.txt. В TODO добавь задачу, сохрани, перезапусти и покажи загрузку. Покажи поведение при отсутствующем файле.</p><h3>Что сказать своими словами</h3><p>Текст читается в UTF-8 построчно через BufferedReader и try-with-resources. readLine убирает разделитель строки. TODO при запуске читает файл в память; добавление меняет только список, а сохранение выполняется по команде 3.</p><h3>Вопросы преподавателя</h3><p><b>Что считается непустой строкой?</b><br>Строка, для которой isBlank возвращает false.</p><p><b>Включены ли переводы строк в символы?</b><br>Нет: считаются line.length(), включая пробелы. Это явно указанное допущение к неоднозначному условию.</p><p><b>Когда сохраняется TODO?</b><br>Только при выборе Save and exit; при ошибке сохранения программа остаётся в меню.</p><div class="notice">Число символов — UTF-16 кодовые единицы Java, не размер файла в байтах. todo.txt создаётся в текущей рабочей папке, поэтому в IntelliJ выбери папку project12 как Working directory.</div><h3>Запуск</h3><pre>powershell -File project12/run.ps1 -MainClass part1_stats.TextFileStats
+powershell -File project12/run.ps1 -MainClass part2_todo.TodoListApp</pre><details><summary>project12/src/common/Input.java</summary><pre><code>package common;
+import java.util.Scanner;
+/** Read complete lines to avoid the nextInt/nextLine newline problem. */
+public final class Input {
+    private static final Scanner IN = new Scanner(System.in);
+    private Input() { }
+    public static String text(String prompt) {
+        System.out.print(prompt);
+        if (!IN.hasNextLine()) throw new IllegalStateException(&quot;Input ended before the dialog finished&quot;);
+        return IN.nextLine().trim();
+    }
+    public static int integer(String prompt, int min, int max) {
+        while (true) {
+            try { int n = Integer.parseInt(text(prompt));
+                if (n &gt;= min &amp;&amp; n &lt;= max) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a whole number from &quot; + min + &quot; to &quot; + max + &quot;.&quot;);
+        }
+    }
+    public static double number(String prompt) {
+        while (true) {
+            try { double n = Double.parseDouble(text(prompt));
+                if (Double.isFinite(n)) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a finite number; use a dot for decimals.&quot;);
+        }
+    }
+    public static boolean again() { return text(&quot;Continue? (Y/N): &quot;).equalsIgnoreCase(&quot;y&quot;); }
+}
+</code></pre></details><details><summary>project12/src/part1_stats/TextFileStats.java</summary><pre><code>package part1_stats;
+import common.Input;
+import java.nio.file.*;
+import java.nio.charset.StandardCharsets;
+import java.io.*;
+public class TextFileStats {
+    public static long[] analyze(Path path)throws IOException{
+        long lines=0,nonEmpty=0,characters=0;
+        try(BufferedReader reader=Files.newBufferedReader(path,StandardCharsets.UTF_8)){
+            String line;while((line=reader.readLine())!=null){lines++;if(!line.isBlank())nonEmpty++;characters+=line.length();}
+        }
+        // Line separators are excluded: readLine removes them. Java length counts UTF-16 code units.
+        return new long[]{lines,nonEmpty,characters};
+    }
+    public static void main(String[] args){
+        try {long[] s=analyze(Path.of(Input.text(&quot;Enter file path: &quot;)));System.out.println(&quot;Total lines: &quot;+s[0]+&quot;\nNon-empty lines: &quot;+s[1]+&quot;\nTotal characters: &quot;+s[2]);}
+        catch(IOException|InvalidPathException e){System.out.println(&quot;Cannot read file: &quot;+e.getMessage());}
+    }
+}
+</code></pre></details><details><summary>project12/src/part2_todo/TodoListApp.java</summary><pre><code>package part2_todo;
+import common.Input;
+import java.nio.file.*;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import java.io.IOException;
+public class TodoListApp {
+    public static List&lt;String&gt; load(Path path)throws IOException{return Files.exists(path)?new ArrayList&lt;&gt;(Files.readAllLines(path,StandardCharsets.UTF_8)):new ArrayList&lt;&gt;();}
+    public static void save(Path path,List&lt;String&gt; tasks)throws IOException{Files.write(path,tasks,StandardCharsets.UTF_8);}
+    public static void main(String[] args){
+        Path path=Path.of(&quot;todo.txt&quot;);List&lt;String&gt; tasks;
+        try{tasks=load(path);}catch(IOException e){System.out.println(&quot;Cannot load tasks; exiting to avoid overwriting an unreadable file: &quot;+e.getMessage());return;}
+        while(true){System.out.println(&quot;==== TODO MENU ====\n1 - Show all tasks\n2 - Add a new task\n3 - Save and exit&quot;);
+            switch(Input.integer(&quot;Choose option: &quot;,1,3)){
+                case 1:if(tasks.isEmpty())System.out.println(&quot;No tasks yet.&quot;);else for(int i=0;i&lt;tasks.size();i++)System.out.println((i+1)+&quot;. &quot;+tasks.get(i));break;
+                case 2:String task=Input.text(&quot;Enter new task description: &quot;);if(task.isEmpty())System.out.println(&quot;Task cannot be empty.&quot;);else tasks.add(task);break;
+                case 3:try{save(path,tasks);System.out.println(&quot;Saved to &quot;+path.toAbsolutePath());return;}catch(IOException e){System.out.println(&quot;Save failed; tasks remain in memory: &quot;+e.getMessage());}break;
+            }
+        }
+    }
+}
+</code></pre></details></section><section id="project13"><h2>23.11, 09:00 — Project 13. Complex project</h2><p><a href="https://auk.instructure.com/courses/1274/assignments/33055">Canvas</a> · <a href="project13/README.md">Инструкция проекта</a> · <a href="https://github.com/kkkumich/sdt100-project-13">Адрес репозитория (статус см. GITHUB-STATUS.txt)</a></p><h3>Что показать</h3><p>Добавь две книги; покажи краткий и подробный списки; измени книгу, удали одну; отсортируй; найди автора/год; сохрани books.tsv и загрузи. Открой class-diagram.svg.</p><h3>Что сказать своими словами</h3><p>Программа состоит из меню Main, модели Book и коллекции BookCollection. Массив увеличивается на один при каждом добавлении; удаление создаёт новый массив и копирует оставшиеся ссылки. Сортировка использует год. При загрузке сначала проверяются все записи во временной коллекции, а текущие данные заменяются только после успешного разбора.</p><h3>Вопросы преподавателя</h3><p><b>Зачем Base64 в файле?</b><br>Чтобы табуляции и переводы строк в текстовых полях не ломали формат; это кодирование, не шифрование.</p><p><b>Почему aggregation на диаграмме?</b><br>Коллекция содержит ссылки на книги, которые могут существовать независимо от неё.</p><p><b>Сложность add/remove в этом варианте?</b><br>O(n), потому что массив каждый раз копируется. Именно динамический массив запрошен в полном варианте задания.</p><div class="notice">Полный массивный вариант, сохранение/загрузка и дополнительное редактирование включены. Перед выходом нажми 9, если хочешь сохранить изменения. books.tsv содержит демонстрационные данные.</div><h3>Запуск</h3><pre>powershell -File project13/run.ps1 -MainClass app.Main</pre><p><a href="project13/class-diagram.svg">Диаграмма классов</a></p><details><summary>project13/src/app/Main.java</summary><pre><code>package app;
+
+import books.Book;
+import database.BookCollection;
+import common.Input;
+import java.io.IOException;
+public class Main {
+    static void addBook(BookCollection books){
+        String title=Input.text(&quot;Book title: &quot;);String author=Input.text(&quot;Author: &quot;);
+        int year=Input.integer(&quot;Publication year: &quot;,1,9999);int pages=Input.integer(&quot;Pages: &quot;,1,1000000);
+        Book book=new Book(title,author,year,pages);book.notes=Input.text(&quot;Notes (optional): &quot;);books.add(book);
+    }
+    static void removeBook(BookCollection books){
+        if(books.size()==0){System.out.println(&quot;No books.&quot;);return;}books.printList();books.remove(Input.integer(&quot;Number to remove: &quot;,1,books.size())-1);
+    }
+    static void editBook(BookCollection books){
+        if(books.size()==0){System.out.println(&quot;No books.&quot;);return;}
+        books.printList();Book book=books.get(Input.integer(&quot;Number to edit: &quot;,1,books.size())-1);
+        // Validate all new values in a temporary object before changing the selected book.
+        Book updated=new Book(Input.text(&quot;New title: &quot;),Input.text(&quot;New author: &quot;),Input.integer(&quot;New year: &quot;,1,9999),Input.integer(&quot;New pages: &quot;,1,1000000));
+        String notes=Input.text(&quot;New notes: &quot;);book.setTitle(updated.getTitle());book.setAuthor(updated.getAuthor());book.setYear(updated.getYear());book.setPages(updated.getPages());book.notes=notes;
+    }
+    static void showOne(BookCollection books){if(books.size()==0)System.out.println(&quot;No books.&quot;);else books.printOne(Input.integer(&quot;Book number: &quot;,1,books.size())-1);}
+    static void menu(){System.out.println(&quot;Welcome to the book database!\n1 List | 2 Add | 3 Remove | 4 Sort by year\n5 Search author | 6 Search year | 7 Details\n8 Load books.tsv | 9 Save books.tsv | 10 Edit | 11 Show one | 0 Exit&quot;);}
+    public static void main(String[] args){BookCollection books=new BookCollection();while(true){menu();try{
+        switch(Input.integer(&quot;Choose: &quot;,0,11)){
+            case 0:System.out.println(&quot;Goodbye. Use option 9 to save before exiting.&quot;);return;
+            case 1:books.printList();break;case 2:addBook(books);break;case 3:removeBook(books);break;
+            case 4:books.sort();System.out.println(&quot;Sorted.&quot;);break;case 5:books.search(Input.text(&quot;Author contains: &quot;));break;
+            case 6:books.searchByYear(Input.integer(&quot;Year: &quot;,1,9999));break;case 7:books.printAll();break;
+            case 8:books.readFromFile();System.out.println(&quot;Loaded.&quot;);break;case 9:books.saveToFile();System.out.println(&quot;Saved.&quot;);break;
+            case 10:editBook(books);break;case 11:showOne(books);break;
+        }
+    }catch(IOException|IllegalArgumentException e){System.out.println(&quot;Operation failed: &quot;+e.getMessage());}}}
+}
+</code></pre></details><details><summary>project13/src/books/Book.java</summary><pre><code>package books;
+/** A book is one hobby artefact. Different instances have independent state. */
+public class Book {
+    public String notes=&quot;&quot;; // Public member required by Project 13.
+    private String title,author;
+    private int year,pages;
+    public Book(String title,String author,int year,int pages) { setTitle(title); setAuthor(author); setYear(year); setPages(pages); }
+    public String getTitle() { return title; }
+    public void setTitle(String value) { if(value==null || value.trim().isEmpty()) throw new IllegalArgumentException(&quot;Blank title&quot;); title=value.trim(); }
+    public String getAuthor() { return author; }
+    public void setAuthor(String value) { if(value==null || value.trim().isEmpty()) throw new IllegalArgumentException(&quot;Blank author&quot;); author=value.trim(); }
+    public int getYear() { return year; }
+    public void setYear(int value) { if(value&lt;1 || value&gt;9999) throw new IllegalArgumentException(&quot;Year must be 1-9999&quot;); year=value; }
+    public int getPages() { return pages; }
+    public void setPages(int value) { if(value&lt;1) throw new IllegalArgumentException(&quot;Pages must be positive&quot;); pages=value; }
+    public double readingHours() { return pages/30.0; }
+    public String getDescription() { return title+&quot;\nAuthor: &quot;+author+&quot;\nYear: &quot;+year+&quot;\nPages: &quot;+pages+&quot;\nEstimated reading hours (30 pages/hour): &quot;+readingHours()+&quot;\nNotes: &quot;+notes; }
+}
+</code></pre></details><details><summary>project13/src/common/Input.java</summary><pre><code>package common;
+import java.util.Scanner;
+/** Read complete lines to avoid the nextInt/nextLine newline problem. */
+public final class Input {
+    private static final Scanner IN = new Scanner(System.in);
+    private Input() { }
+    public static String text(String prompt) {
+        System.out.print(prompt);
+        if (!IN.hasNextLine()) throw new IllegalStateException(&quot;Input ended before the dialog finished&quot;);
+        return IN.nextLine().trim();
+    }
+    public static int integer(String prompt, int min, int max) {
+        while (true) {
+            try { int n = Integer.parseInt(text(prompt));
+                if (n &gt;= min &amp;&amp; n &lt;= max) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a whole number from &quot; + min + &quot; to &quot; + max + &quot;.&quot;);
+        }
+    }
+    public static double number(String prompt) {
+        while (true) {
+            try { double n = Double.parseDouble(text(prompt));
+                if (Double.isFinite(n)) return n;
+            } catch (NumberFormatException ignored) { }
+            System.out.println(&quot;Enter a finite number; use a dot for decimals.&quot;);
+        }
+    }
+    public static boolean again() { return text(&quot;Continue? (Y/N): &quot;).equalsIgnoreCase(&quot;y&quot;); }
+}
+</code></pre></details><details><summary>project13/src/database/BookCollection.java</summary><pre><code>package database;
+import books.Book;
+import java.util.*;
+import java.nio.file.*;
+import java.nio.charset.StandardCharsets;
+import java.io.IOException;
+public class BookCollection {
+    public static final Path FILE=Path.of(&quot;books.tsv&quot;);
+    private Book[] items=new Book[0];
+    private int count=0;
+    public int size(){return count;}
+    public Book get(int i){if(i&lt;0||i&gt;=count)throw new IllegalArgumentException(&quot;Invalid index&quot;);return items[i];}
+    public void add(Book item){if(item==null)throw new IllegalArgumentException(&quot;Null item&quot;);items=Arrays.copyOf(items,count+1);items[count++]=item;}
+    public void remove(int i){get(i);Book[] replacement=new Book[count-1];System.arraycopy(items,0,replacement,0,i);System.arraycopy(items,i+1,replacement,i,count-i-1);items=replacement;count--;}
+    public void printOne(int i){System.out.println((i+1)+&quot;. &quot;+get(i).getDescription());}
+    public void printAll(){for(int i=0;i&lt;count;i++)printOne(i);if(count==0)System.out.println(&quot;No books.&quot;);}
+    public void printList(){for(int i=0;i&lt;count;i++)System.out.println((i+1)+&quot;. &quot;+items[i].getTitle());if(count==0)System.out.println(&quot;No books.&quot;);}
+    public void sort(){for(int end=count-1;end&gt;0;end--){boolean changed=false;for(int j=0;j&lt;end;j++)if(items[j].getYear()&gt;items[j+1].getYear()){Book temp=items[j];items[j]=items[j+1];items[j+1]=temp;changed=true;}if(!changed)break;}}
+    public void search(String phrase){boolean found=false;for(int i=0;i&lt;count;i++)if(items[i].getAuthor().toLowerCase(Locale.ROOT).contains(phrase.toLowerCase(Locale.ROOT))){printOne(i);found=true;}if(!found)System.out.println(&quot;No matching authors.&quot;);}
+    public void searchByYear(int year){boolean found=false;for(int i=0;i&lt;count;i++)if(items[i].getYear()==year){printOne(i);found=true;}if(!found)System.out.println(&quot;No matching years.&quot;);}
+    private static String encode(String s){return Base64.getEncoder().encodeToString(s.getBytes(StandardCharsets.UTF_8));}
+    private static String decode(String s){return new String(Base64.getDecoder().decode(s),StandardCharsets.UTF_8);}
+    public void saveToFile()throws IOException{saveToFile(FILE);}
+    public void saveToFile(Path path)throws IOException{
+        List&lt;String&gt; lines=new ArrayList&lt;&gt;();
+        for(Book book:items)lines.add(encode(book.getTitle())+&quot;\t&quot;+encode(book.getAuthor())+&quot;\t&quot;+book.getYear()+&quot;\t&quot;+book.getPages()+&quot;\t&quot;+encode(book.notes));
+        Files.write(path,lines,StandardCharsets.UTF_8);
+    }
+    public void readFromFile()throws IOException{readFromFile(FILE);}
+    public void readFromFile(Path path)throws IOException{
+        List&lt;String&gt; lines=Files.readAllLines(path,StandardCharsets.UTF_8);BookCollection loaded=new BookCollection();
+        for(int i=0;i&lt;lines.size();i++)try{
+            String[] columns=lines.get(i).split(&quot;\t&quot;,-1);if(columns.length!=5)throw new IllegalArgumentException(&quot;Expected five fields&quot;);
+            Book book=new Book(decode(columns[0]),decode(columns[1]),Integer.parseInt(columns[2]),Integer.parseInt(columns[3]));book.notes=decode(columns[4]);loaded.add(book);
+        }catch(IllegalArgumentException e){throw new IOException(&quot;Invalid book record on line &quot;+(i+1),e);}
+        // Replace current data only after every record has been parsed successfully.
+        items=loaded.items;count=loaded.count;
+    }
+}
+</code></pre></details></section></main></html>
