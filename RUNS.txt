@@ -1,0 +1,8 @@
+===== part1_hello.Main.txt =====
+COMMAND: java -cp build part1_hello.Main
+INPUT (demo data):
+
+OUTPUT:
+Hello world!
+My name is Ivan. Welcome to my first Java program.
+I am learning variables, conditions, loops and methods.
